@@ -37,6 +37,11 @@
     defaultLocale = "en_US.UTF-8";
   };
 
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = true;
+  };
+
   hardware.pulseaudio.enable = true;
   security.sudo.wheelNeedsPassword = false;
   time.timeZone = "America/New_York";
