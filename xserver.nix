@@ -10,9 +10,12 @@
     # Enable touchpad support
     libinput.enable = true;
 
-    displayManager.sddm = {
+    displayManager.slim = {
       enable = true;
-      theme = "breeze";
+      theme = pkgs.fetchurl {
+        url = "mirror://sourceforge/slim.berlios/slim-capernoited.tar.gz";
+        sha256 = "0hbby6173gnklz7jl4lm8iwscmkmm9rj2kywi3q60vb5lb3674gv";
+      };
     };
 
     desktopManager = {

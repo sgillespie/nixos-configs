@@ -5,8 +5,10 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    alsaUtils
     bashInteractive
     binutils
+    corefonts
     curl
     docker
     docker_compose
@@ -19,6 +21,9 @@
     ghc
     gitAndTools.gitFull
     irssi
+    lightdm
+    python3
+    python36Packages.pip
     openssh
     rxvt_unicode
     slack
@@ -31,7 +36,14 @@
     zsh
   ];
 
-  nixpkgs.config.allowUnfreePredicate = (x: pkgs.lib.hasPrefix "slack-" x.name);
+  nixpkgs.config.allowUnfreePredicate =
+    let
+      unfreePkgs = [
+        "slack"
+        "corefonts"
+      ];
+      match = pkg: (prefix: pkgs.lib.hasPrefix (prefix + "-") pkg.name);
+    in pkg: builtins.any (match pkg) unfreePkgs;
 
   programs = {
     chromium.enable = true;
