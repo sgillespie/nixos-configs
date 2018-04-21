@@ -4,8 +4,9 @@
 {
   services.xserver = {
     enable = true;
+    enableCtrlAltBackspace = true;
     layout = "us";
-    xkbOptions = "ctrl:swapcaps, terminate:ctrl_alt_bksp";
+    xkbOptions = "ctrl:swapcaps";
 
     # Enable touchpad support
     libinput.enable = true;
@@ -20,7 +21,6 @@
 
     desktopManager = {
       gnome3.enable = true;
-      plasma5.enable = true;
     };
 
     windowManager.i3 = {

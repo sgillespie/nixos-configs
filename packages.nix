@@ -8,9 +8,7 @@
     alsaUtils
     bashInteractive
     binutils
-    corefonts
     curl
-    docker
     docker_compose
     elinks
     emacs
@@ -23,7 +21,7 @@
     irssi
     lightdm
     python3
-    python36Packages.pip
+    python36Packages.pygobject3
     openssh
     rxvt_unicode
     slack
@@ -31,7 +29,8 @@
     stack
     unzip
     xclip
-    vim
+    vimHugeX
+    vimPlugins.Syntastic
     zip
     zsh
   ];

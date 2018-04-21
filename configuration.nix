@@ -13,9 +13,8 @@
       ./users.nix       # user accounts
     ];
 
-  # Use the systemd-boot EFI boot loader.
+  # Use the grub EFI boot loader.
   boot.loader = {
-    # boot.loader.systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
     grub = {
       device = "nodev";
@@ -34,6 +33,8 @@
   i18n = {
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "us";
+    # Not yet
+    # consoleUseXkbConfig = true;  # Copy from xkbOptions
     defaultLocale = "en_US.UTF-8";
   };
 
