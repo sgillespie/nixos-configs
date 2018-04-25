@@ -8,6 +8,8 @@
     alsaUtils
     bashInteractive
     binutils
+    cabal-install
+    cryptsetup
     curl
     docker_compose
     elinks
