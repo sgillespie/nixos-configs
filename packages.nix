@@ -21,6 +21,7 @@
     ghc
     gitAndTools.gitFull
     irssi
+    libreoffice
     lightdm
     python3
     python36Packages.pygobject3

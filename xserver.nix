@@ -2,6 +2,16 @@
 { config, pkgs, ... }:
 
 {
+  fonts = {
+    enableFontDir = true;  # This is required for extra fonts
+
+    # Extra fonts
+    fonts = with pkgs; [
+      source-code-pro
+      corefonts
+    ];
+  };
+
   services.xserver = {
     enable = true;
     enableCtrlAltBackspace = true;
