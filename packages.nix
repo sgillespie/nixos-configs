@@ -6,6 +6,8 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
     alsaUtils
+    autoconf
+    automake
     bashInteractive
     binutils
     cabal-install
