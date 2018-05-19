@@ -11,7 +11,7 @@
     bashInteractive
     binutils
     cabal-install
-    cryptsetup
+    chromium
     curl
     docker_compose
     elinks
@@ -23,10 +23,7 @@
     ghc
     gitAndTools.gitFull
     irssi
-    libreoffice
-    lightdm
-    python3
-    python36Packages.pygobject3
+    mutt-with-sidebar
     openssh
     rxvt_unicode
     slack
