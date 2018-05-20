@@ -20,16 +20,19 @@
     firefox
     gcc
     gnumake
+    gnupg
     ghc
     gitAndTools.gitFull
     irssi
     mutt-with-sidebar
+    nodejs-9_x
     openssh
     rxvt_unicode
     slack
     source-code-pro
     stack
     unzip
+    usbutils
     xclip
     vimHugeX
     vimPlugins.Syntastic
