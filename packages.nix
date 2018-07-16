@@ -25,10 +25,11 @@
     gitAndTools.gitFull
     irssi
     mutt-with-sidebar
-    nodejs-9_x
+    nodejs
     openssh
     rxvt_unicode
     slack
+    spotify
     source-code-pro
     stack
     unzip
@@ -45,6 +46,7 @@
       unfreePkgs = [
         "slack"
         "corefonts"
+        "spotify"
       ];
       match = pkg: (prefix: pkgs.lib.hasPrefix (prefix + "-") pkg.name);
     in pkg: builtins.any (match pkg) unfreePkgs;
