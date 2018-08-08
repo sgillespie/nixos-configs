@@ -4,42 +4,49 @@
 {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
-    alsaUtils
-    autoconf
-    automake
-    bashInteractive
-    binutils
-    cabal-install
-    chromium
-    curl
-    docker_compose
-    elinks
-    emacs
-    feh
-    firefox
-    gcc
-    gnumake
-    gnupg
-    ghc
-    gitAndTools.gitFull
-    irssi
-    mutt-with-sidebar
-    nodejs
-    openssh
-    rxvt_unicode
-    slack
-    spotify
-    source-code-pro
-    stack
-    unzip
-    usbutils
-    xclip
-    vimHugeX
-    vimPlugins.Syntastic
-    zip
-    zsh
-  ];
+  environment.systemPackages =
+    let
+      mypkgs = import ./mypkgs { nixpkgs = pkgs; };
+      inherit (mypkgs) elocrypt androidPlatformTools;
+    in
+      with pkgs; [
+        androidPlatformTools
+        alsaUtils
+        autoconf
+        automake
+        bashInteractive
+        binutils
+        cabal-install
+        chromium
+        curl
+        docker_compose
+        elinks
+        elocrypt
+        emacs
+        feh
+        firefox
+        gcc
+        gnumake
+        gnupg
+        ghc
+        gitAndTools.gitFull
+        irssi
+        mutt-with-sidebar
+        nodejs
+        openssh
+        rxvt_unicode
+        slack
+        spotify
+        source-code-pro
+        stack
+        unzip
+        usbutils
+        xclip
+        vimHugeX
+        vimPlugins.Syntastic
+        zip
+        zsh
+      ];
 
   nixpkgs.config.allowUnfreePredicate =
     let
@@ -49,7 +56,8 @@
         "spotify"
       ];
       match = pkg: (prefix: pkgs.lib.hasPrefix (prefix + "-") pkg.name);
-    in pkg: builtins.any (match pkg) unfreePkgs;
+    in
+      pkg: builtins.any (match pkg) unfreePkgs;
 
   programs = {
     chromium.enable = true;
