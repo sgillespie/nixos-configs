@@ -21,17 +21,7 @@
     # Enable touchpad support
     libinput.enable = true;
 
-    displayManager = {
-      slim = {
-        enable = true;
-        theme = pkgs.fetchurl {
-          url = "mirror://sourceforge/slim.berlios/slim-capernoited.tar.gz";
-          sha256 = "0hbby6173gnklz7jl4lm8iwscmkmm9rj2kywi3q60vb5lb3674gv";
-        };
-      };
-
-      gdm.enable = false;
-    };
+    displayManager.gdm.enable = true;
 
     desktopManager = {
       gnome3.enable = true;
