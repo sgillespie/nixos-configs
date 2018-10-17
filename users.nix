@@ -3,6 +3,8 @@
 
 {
   users.extraUsers = {
+    root.initialHashedPassword = "";
+
     agillespie = {
       isNormalUser = true;
       extraGroups = [

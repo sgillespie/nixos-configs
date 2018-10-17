@@ -32,13 +32,14 @@
         gitAndTools.gitFull
         irssi
         mutt-with-sidebar
-        nodejs
         openssh
         rxvt_unicode
+        scrot
         slack
         spotify
         source-code-pro
         stack
+        thunderbird
         unzip
         usbutils
         xclip
