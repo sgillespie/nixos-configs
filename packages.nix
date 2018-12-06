@@ -18,6 +18,7 @@
         binutils
         cabal-install
         chromium
+        cryptsetup
         curl
         docker_compose
         elinks
@@ -33,6 +34,7 @@
         irssi
         mutt-with-sidebar
         openssh
+        parted
         rxvt_unicode
         scrot
         slack
