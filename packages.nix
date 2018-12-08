@@ -6,7 +6,10 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     let
-      mypkgs = import ./mypkgs { nixpkgs = pkgs; };
+      mypkgs = import ./mypkgs {
+        inherit (pkgs) pkgs;
+      };
+
       inherit (mypkgs) elocrypt androidPlatformTools;
     in
       with pkgs; [
