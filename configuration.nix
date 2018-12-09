@@ -27,7 +27,17 @@
   networking = {
     firewall.enable = true;
     hostName = "sean-nixos";
-    networkmanager.enable = true;
+
+    networkmanager = {
+      enable = true;
+      unmanaged = ["interface-name:ve-*"];
+    };
+
+    nat = {
+      enable = true;
+      internalInterfaces = ["ve-+"];
+      externalInterface = "wlp7s0";
+    };
   };
 
   i18n = {
@@ -41,6 +51,7 @@
   virtualisation.docker = {
     enable = true;
     enableOnBoot = true;
+    liveRestore = false;
   };
 
   hardware.pulseaudio.enable = true;
