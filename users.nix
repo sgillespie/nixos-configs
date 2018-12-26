@@ -11,6 +11,7 @@
         "docker"
         "wheel"
         "networkmanager"
+        "vboxusers"
       ];
     };
 
@@ -20,6 +21,7 @@
         "docker"
         "wheel"
         "networkmanager"
+        "vboxusers"
       ];
       shell = pkgs.zsh;
     };

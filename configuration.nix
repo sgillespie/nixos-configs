@@ -8,9 +8,10 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./packages.nix    # install system packages
-      ./xserver.nix     # x.org configuration
-      ./users.nix       # user accounts
+      ./packages.nix       # install system packages
+      ./xserver.nix        # x.org configuration
+      ./users.nix          # user accounts
+      ./virtualisation.nix # docker and VMs
     ];
 
   # Use the grub EFI boot loader.
@@ -46,12 +47,6 @@
     # Not yet
     # consoleUseXkbConfig = true;  # Copy from xkbOptions
     defaultLocale = "en_US.UTF-8";
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = true;
-    liveRestore = false;
   };
 
   hardware.pulseaudio.enable = true;
