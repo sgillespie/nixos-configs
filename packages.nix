@@ -37,8 +37,12 @@
         irssi
         mutt-with-sidebar
         openssh
+        patchelf
         parted
+        python27Packages.pywatchman
         rxvt_unicode
+        sbt
+        scala
         scrot
         slack
         spotify
@@ -50,6 +54,8 @@
         xclip
         vimHugeX
         vimPlugins.Syntastic
+        virtualbox
+        watchman
         zip
         zsh
       ];
