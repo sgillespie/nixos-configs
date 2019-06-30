@@ -38,9 +38,11 @@
         gnupg
         irssi
         mutt-with-sidebar
+        nodejs
         openssh
         patchelf
         parted
+        pass
         python27Packages.pywatchman
         rxvt_unicode
         sbt
