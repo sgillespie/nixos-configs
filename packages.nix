@@ -10,11 +10,13 @@
         inherit (pkgs) pkgs;
       };
 
-      inherit (mypkgs) elocrypt androidPlatformTools;
+      inherit (mypkgs) elocrypt;
+
+      androidPlatformTools = pkgs.androidenv.androidPkgs_9_0.platform-tools;
     in
       with pkgs; [
-        androidPlatformTools
         alsaUtils
+        androidPlatformTools
         autoconf
         automake
         bashInteractive
@@ -30,10 +32,10 @@
         feh
         firefox
         gcc
-        gnumake
-        gnupg
         ghc
         gitAndTools.gitFull
+        gnumake
+        gnupg
         irssi
         mutt-with-sidebar
         openssh
@@ -60,16 +62,20 @@
         zsh
       ];
 
-  nixpkgs.config.allowUnfreePredicate =
-    let
-      unfreePkgs = [
-        "slack"
-        "corefonts"
-        "spotify"
-      ];
-      match = pkg: (prefix: pkgs.lib.hasPrefix (prefix + "-") pkg.name);
-    in
-      pkg: builtins.any (match pkg) unfreePkgs;
+  nixpkgs.config = {
+    android_sdk.accept_license = true;
+
+    allowUnfreePredicate =
+      let
+        unfreePkgs = [
+          "slack"
+          "corefonts"
+          "spotify"
+        ];
+        match = pkg: (prefix: pkgs.lib.hasPrefix (prefix + "-") pkg.name);
+      in
+        pkg: builtins.any (match pkg) unfreePkgs;
+  };
 
   programs = {
     chromium.enable = true;
