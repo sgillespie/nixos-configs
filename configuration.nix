@@ -41,6 +41,15 @@
     };
   };
 
+  services = {
+    udev.packages = with pkgs; [
+      libu2f-host
+      yubikey-personalization
+    ];
+
+    pcscd.enable = true;
+  };
+
   i18n = {
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "us";
