@@ -40,6 +40,7 @@
         mutt-with-sidebar
         nodejs
         openssh
+        openssl
         patchelf
         parted
         pass
