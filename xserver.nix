@@ -13,6 +13,11 @@
   };
 
   services = {
+    autorandr = {
+      enable = true;
+      defaultTarget = "default";
+    };
+    
     xserver = {
       enable = true;
       enableCtrlAltBackspace = true;
@@ -22,11 +27,21 @@
       # Enable touchpad support
       libinput.enable = true;
 
-      displayManager.sddm = {
-        enable = true;
-        theme = "maya";
+      displayManager = {
+        gdm.enable = true;
+        
+        job.preStart =  ''
+          if [[ -e "/etc/gdm/.config/monitors.xml" ]]; then
+            mkdir -p /run/gdm/.config
+            cp /etc/gdm/.config/monitors.xml /run/gdm/.config
+          fi
+        '';
+        
+        sessionCommands = ''
+          autorandr --detected --change --default default
+        '';
       };
-
+        
       desktopManager = {
         gnome3.enable = true;
       };
@@ -39,20 +54,6 @@
           i3lock
         ];
       };
-
-      xrandrHeads = [
-        {
-          output = "DP1-2";
-          primary = true;
-          monitorConfig = ''
-            Option "LeftOf" "DP2-2"
-          '';
-        }
-
-        {
-          output = "DP2-2";
-        }
-      ];
     };
   };
 }

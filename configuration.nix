@@ -59,7 +59,17 @@
   };
 
   hardware.pulseaudio.enable = true;
-  security.sudo.wheelNeedsPassword = false;
+
+  security = {
+    pam.u2f = {
+      enable = true;
+      control = "required";
+      cue = true;
+    };
+    
+    sudo.wheelNeedsPassword = false;
+  };
+
   time.timeZone = "America/New_York";
 
   # This value determines the NixOS release with which your system is to be
