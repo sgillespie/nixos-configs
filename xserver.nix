@@ -28,14 +28,15 @@
       libinput.enable = true;
 
       displayManager = {
-        gdm.enable = true;
-        
-        job.preStart =  ''
-          if [[ -e "/etc/gdm/.config/monitors.xml" ]]; then
-            mkdir -p /run/gdm/.config
-            cp /etc/gdm/.config/monitors.xml /run/gdm/.config
-          fi
-        '';
+        lightdm = {
+          enable = true;
+          background = "${pkgs.adapta-backgrounds}/share/backgrounds/adapta/tri-fadeno.jpg";
+          greeters.gtk.enable = true;
+          greeters.gtk.iconTheme.package = pkgs.numix-icon-theme;
+          greeters.gtk.iconTheme.name = "Numix";
+          greeters.gtk.theme.package = pkgs.adapta-gtk-theme;
+          greeters.gtk.theme.name = "Adapta";
+        };
         
         sessionCommands = ''
           autorandr --detected --change --default default
