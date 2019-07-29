@@ -28,16 +28,8 @@
       libinput.enable = true;
 
       displayManager = {
-        lightdm = {
-          enable = true;
-          background = "${pkgs.adapta-backgrounds}/share/backgrounds/adapta/tri-fadeno.jpg";
-          greeters.gtk.enable = true;
-          greeters.gtk.iconTheme.package = pkgs.numix-icon-theme;
-          greeters.gtk.iconTheme.name = "Numix";
-          greeters.gtk.theme.package = pkgs.adapta-gtk-theme;
-          greeters.gtk.theme.name = "Adapta";
-        };
-        
+        gdm.enable = true;
+
         sessionCommands = ''
           autorandr --detected --change --default default
         '';
