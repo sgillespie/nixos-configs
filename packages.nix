@@ -44,6 +44,7 @@
         patchelf
         parted
         pass
+        passff-host
         python27Packages.pywatchman
         rxvt_unicode
         sbt
@@ -61,6 +62,7 @@
         vimPlugins.Syntastic
         virtualbox
         watchman
+        yubikey-personalization
         zip
         zsh
       ];
