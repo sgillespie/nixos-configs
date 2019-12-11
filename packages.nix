@@ -77,9 +77,8 @@
           "corefonts"
           "spotify"
         ];
-        match = pkg: (prefix: pkgs.lib.hasPrefix (prefix + "-") pkg.name);
       in
-        pkg: builtins.any (match pkg) unfreePkgs;
+        pkg: builtins.elem (pkgs.lib.getName pkg) unfreePkgs;
   };
 
   environment.shellInit = ''
