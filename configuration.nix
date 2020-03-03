@@ -14,14 +14,19 @@
       ./virtualisation.nix # docker and VMs
     ];
 
-  # Use the grub EFI boot loader.
-  boot.loader = {
-    efi.canTouchEfiVariables = false;
-    grub = {
-      device = "nodev";
-      efiSupport = true;
-      enable = true;
-      useOSProber = true;
+  
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    
+    # Use the grub EFI boot loader.
+    loader = {
+      efi.canTouchEfiVariables = false;
+      grub = {
+        device = "nodev";
+        efiSupport = true;
+        enable = true;
+        useOSProber = true;
+      };
     };
   };
 
@@ -65,6 +70,7 @@
       enable = true;
       control = "required";
       cue = true;
+      authFile = "/etc/u2f_mappings";
     };
     
     sudo.wheelNeedsPassword = false;
