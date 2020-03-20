@@ -21,9 +21,15 @@
     xserver = {
       enable = true;
       enableCtrlAltBackspace = true;
-      layout = "us";
-      xkbOptions = "ctrl:swapcaps";
+      # layout = "3l-emacs";
+      # xkbOptions = "ctrl:swapcaps";
 
+      extraLayouts."3l-emacs" = {
+        description = "3l optimized for emacs";
+        languages = ["eng"];
+        symbolsFile = /etc/nixos/3l-emacs.xkb;
+      };
+      
       # Enable touchpad support
       libinput.enable = true;
 
@@ -36,9 +42,9 @@
       };
         
       desktopManager = {
-        gnome3.enable = true;
+        xfce4-14.enable = true;
       };
-
+      
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [

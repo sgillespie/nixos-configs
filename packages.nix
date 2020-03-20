@@ -93,7 +93,8 @@
       enableSSHSupport = true;
     };
     ssh.startAgent = false;
-     
+
+    browserpass.enable = true;
     chromium.enable = true;
     tmux.enable = true;
     zsh.enable = true;

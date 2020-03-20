@@ -55,9 +55,13 @@
     pcscd.enable = true;
   };
 
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "us";
+  };
+
   i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
+    
     # Not yet
     # consoleUseXkbConfig = true;  # Copy from xkbOptions
     defaultLocale = "en_US.UTF-8";
