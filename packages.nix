@@ -53,14 +53,11 @@
         slack
         spotify
         source-code-pro
-        stack
-        thunderbird
         unzip
         usbutils
         xclip
         vimHugeX
         vimPlugins.Syntastic
-        virtualbox
         watchman
         yubikey-personalization
         zip
