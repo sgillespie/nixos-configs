@@ -21,7 +21,7 @@
     xserver = {
       enable = true;
       enableCtrlAltBackspace = true;
-      # layout = "3l-emacs";
+      layout = "3l-emacs";
       # xkbOptions = "ctrl:swapcaps";
 
       extraLayouts."3l-emacs" = {
@@ -42,7 +42,7 @@
       };
         
       desktopManager = {
-        xfce4-14.enable = true;
+        xfce.enable = true;
       };
       
       windowManager.i3 = {
