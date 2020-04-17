@@ -23,6 +23,7 @@
         binutils
         cabal-install
         chromium
+        clipmenu
         cryptsetup
         curl
         docker_compose
@@ -46,6 +47,7 @@
         pass
         passff-host
         python27Packages.pywatchman
+        rofi
         rxvt_unicode
         sbt
         scala
@@ -56,6 +58,7 @@
         unzip
         usbutils
         xclip
+        xdotool
         vimHugeX
         vimPlugins.Syntastic
         watchman
