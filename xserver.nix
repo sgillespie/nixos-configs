@@ -17,6 +17,8 @@
       enable = true;
       defaultTarget = "default";
     };
+
+    clipmenu.enable = true;
     
     xserver = {
       enable = true;

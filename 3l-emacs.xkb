@@ -2,7 +2,7 @@
 // See https://github.com/jackrosenthal/threelayout for specification
 default partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
-    name[Group1] = "English (3l-sean)";
+    name[Group1] = "English (3l-emacs)";
 
     key.type[Group1] = "ONE_LEVEL";
     key <TAB> { [ Tab ] };
@@ -25,6 +25,7 @@ xkb_symbols "basic" {
     key <AE08> { [ 8 ] };
     key <AE09> { [ 9 ] };
     key <AE10> { [ 0 ] };
+    key <AE11> { [ minus ] }; 
 
     // Main keys
     // Order of mods (defined by EIGHT_LEVEL_SEMIALPHABETIC) is:
