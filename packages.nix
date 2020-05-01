@@ -84,6 +84,10 @@
       enable = true;
       enableSSHSupport = true;
     };
+    java = {
+      enable = true;
+      package = pkgs.adoptopenjdk-bin;
+    };
     ssh.startAgent = false;
 
     browserpass.enable = true;
