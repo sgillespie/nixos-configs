@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, options, pkgs, ... }:
 
 {
   imports =
@@ -12,8 +12,25 @@
       ./xserver.nix        # x.org configuration
       ./users.nix          # user accounts
       ./virtualisation.nix # docker and VMs
+
+      # Extras
+      # ./rocm.nix
     ];
 
+  nix = {
+    nixPath =
+      options.nix.nixPath.default ++ 
+      ["nixpkgs-overlays=/etc/nixos/overlays-compat/"];
+
+    # Reflex-FRP
+    binaryCaches = [
+      "https://cache.nixos.org/"
+      "https://nixcache.reflex-frp.org"
+    ];
+    binaryCachePublicKeys = [
+      "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
+    ];
+  };
   
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

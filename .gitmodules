@@ -1,0 +1,3 @@
+[submodule "nixos-rocm"]
+	path = nixos-rocm
+	url = git@github.com:nixos-rocm/nixos-rocm.git
