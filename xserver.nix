@@ -44,7 +44,7 @@
       };
         
       desktopManager = {
-        xfce.enable = true;
+        gnome3.enable = true;
       };
       
       windowManager.i3 = {

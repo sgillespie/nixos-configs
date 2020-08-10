@@ -31,7 +31,7 @@
         gnupg
         irssi
         mutt-with-sidebar
-        nodejs
+        nodejs_latest
         openssh
         openssl
         patchelf
@@ -39,6 +39,7 @@
         pass
         passff-host
         python27Packages.pywatchman
+        python3
         rofi
         rxvt_unicode
         sbt
@@ -47,6 +48,7 @@
         slack
         spotify
         source-code-pro
+        tdesktop
         unzip
         usbutils
         xclip
