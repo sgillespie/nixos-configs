@@ -6,12 +6,6 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     let
-      mypkgs = import ./mypkgs {
-        inherit (pkgs) pkgs;
-      };
-
-      inherit (mypkgs) elocrypt;
-
       androidPlatformTools = pkgs.androidenv.androidPkgs_9_0.platform-tools;
     in
       with pkgs; [
@@ -21,7 +15,6 @@
         automake
         bashInteractive
         binutils
-        cabal-install
         chromium
         clipmenu
         cryptsetup
@@ -33,7 +26,6 @@
         feh
         firefox
         gcc
-        ghc
         gitAndTools.gitFull
         gnumake
         gnupg

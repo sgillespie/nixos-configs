@@ -14,7 +14,7 @@
       ./virtualisation.nix # docker and VMs
 
       # Extras
-      # ./rocm.nix
+      ./modules
     ];
 
   nix = {
@@ -31,7 +31,11 @@
       "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI="
     ];
   };
-  
+
+  nixpkgs.overlays = [
+    (import ./pkgs)
+  ];
+
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     
@@ -64,6 +68,8 @@
   };
 
   services = {
+    ntp.enable = true;
+
     udev.packages = with pkgs; [
       libu2f-host
       yubikey-personalization
@@ -103,5 +109,5 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.09"; # Did you read the comment?
+  system.stateVersion = "20.03"; # Did you read the comment?
 }
