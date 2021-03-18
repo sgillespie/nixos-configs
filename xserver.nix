@@ -26,12 +26,15 @@
       layout = "3l-emacs";
       # xkbOptions = "ctrl:swapcaps";
 
+      digimend.enable = true;
+      wacom.enable = true;
+      
       extraLayouts."3l-emacs" = {
         description = "3l optimized for emacs";
         languages = ["eng"];
         symbolsFile = /etc/nixos/3l-emacs.xkb;
       };
-      
+
       # Enable touchpad support
       libinput.enable = true;
 

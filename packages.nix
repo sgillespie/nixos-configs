@@ -26,6 +26,7 @@
         feh
         firefox
         gcc
+        git-lfs
         gitAndTools.gitFull
         gnumake
         gnupg
