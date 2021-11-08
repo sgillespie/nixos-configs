@@ -3,7 +3,7 @@
 
 {
   fonts = {
-    enableFontDir = true;  # This is required for extra fonts
+    fontDir.enable = true;  # This is required for extra fonts
 
     # Extra fonts
     fonts = with pkgs; [
@@ -19,7 +19,7 @@
     };
 
     clipmenu.enable = true;
-    
+
     xserver = {
       enable = true;
       enableCtrlAltBackspace = true;
@@ -47,7 +47,7 @@
       };
         
       desktopManager = {
-        gnome3.enable = true;
+        gnome.enable = true;
       };
       
       windowManager.i3 = {
