@@ -1,9 +1,6 @@
-# Packages/programs configuration
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
   environment.systemPackages =
     let
       androidPlatformTools = pkgs.androidenv.androidPkgs_9_0.platform-tools;
@@ -15,22 +12,17 @@
         automake
         bashInteractive
         binutils
-        chromium
-        clipmenu
         cryptsetup
         curl
-        docker_compose
+        docker-compose
         elinks
         elocrypt
         emacs
-        feh
-        firefox
         gcc
         git-lfs
         gitAndTools.gitFull
         gnumake
         gnupg
-        irssi
         mutt-with-sidebar
         nodejs_latest
         openssh
@@ -38,43 +30,17 @@
         patchelf
         parted
         pass
-        passff-host
-        python27Packages.pywatchman
         python3
-        rofi
-        rxvt_unicode
         sbt
         scala
-        scrot
-        slack
-        spotify
-        source-code-pro
-        tdesktop
         unzip
         usbutils
-        xclip
-        xdotool
         vimHugeX
         vimPlugins.Syntastic
-        watchman
         yubikey-personalization
         zip
         zsh
       ];
-
-  nixpkgs.config = {
-    android_sdk.accept_license = true;
-
-    allowUnfreePredicate =
-      let
-        unfreePkgs = [
-          "slack"
-          "corefonts"
-          "spotify"
-        ];
-      in
-        pkg: builtins.elem (pkgs.lib.getName pkg) unfreePkgs;
-  };
 
   environment.shellInit = ''
     export GPG_TTY="$(tty)"

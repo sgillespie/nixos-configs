@@ -1,7 +1,9 @@
-# User accounts
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+  programs.zsh.enable = true;
+  security.sudo.wheelNeedsPassword = false;
+  
   users.extraUsers = {
     root.initialHashedPassword = "";
 
@@ -19,7 +21,6 @@
     sgillespie = {
       isNormalUser = true;
       extraGroups = [
-        "bitcoin"
         "docker"
         "wheel"
         "networkmanager"

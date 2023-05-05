@@ -1,16 +1,31 @@
-# X11 windowing system configuration
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    chromium
+    feh
+    firefox
+    passff-host
+    rofi
+    rxvt_unicode
+    scrot
+    slack
+    spotify
+    tdesktop
+    xclip
+    xdotool
+  ];
+  
   fonts = {
     fontDir.enable = true;  # This is required for extra fonts
 
-    # Extra fonts
     fonts = with pkgs; [
       source-code-pro
       corefonts
     ];
   };
+
+  programs.browserpass.enable = true;
 
   services = {
     autorandr = {
@@ -24,7 +39,8 @@
       enable = true;
       enableCtrlAltBackspace = true;
       layout = "3l-emacs";
-      # xkbOptions = "ctrl:swapcaps";
+
+      libinput.enable = true;
 
       digimend.enable = true;
       wacom.enable = true;
@@ -32,14 +48,14 @@
       extraLayouts."3l-emacs" = {
         description = "3l optimized for emacs";
         languages = ["eng"];
-        symbolsFile = /etc/nixos/3l-emacs.xkb;
+        symbolsFile = ./3l-emacs.xkb;
       };
 
-      # Enable touchpad support
-      libinput.enable = true;
-
       displayManager = {
-        gdm.enable = true;
+        gdm = {
+          enable = true;
+          wayland = false;
+        };
 
         sessionCommands = ''
           autorandr --detected --change --default default
