@@ -6,6 +6,8 @@
       ./hardware-configuration.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
+  
   boot.loader = {
     grub = {
       efiSupport = true;
