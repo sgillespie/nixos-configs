@@ -32,6 +32,7 @@
             ./modules/packages
             ./modules/xserver
             ./modules/virtualization
+            ./modules/haskell
           ];
         };
       };
