@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  imports = [ ./nvidia.nix ];
+  
   environment.systemPackages = with pkgs; [
     chromium
     feh

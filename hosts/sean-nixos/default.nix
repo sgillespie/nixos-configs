@@ -6,17 +6,19 @@
       ./hardware-configuration.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
+  boot = {
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
   
-  boot.loader = {
-    grub = {
-      efiSupport = true;
-      enable = true;
-      device = "nodev";
-      useOSProber = true;
-    };
+    loader = {
+      grub = {
+        efiSupport = true;
+        enable = true;
+        device = "nodev";
+        useOSProber = true;
+      };
 
-    efi.canTouchEfiVariables = true;
+      efi.canTouchEfiVariables = true;
+    };
   };
 
   networking = {
@@ -40,7 +42,11 @@
   };
 
   nixpkgs.config = pkgs.config;
-  hardware.enableAllFirmware = true;
+
+  hardware = {
+    enableAllFirmware = true;
+    nvidiaUnfree.enable = true;
+  };
 
   services = {
     yubikey.enable = true;
