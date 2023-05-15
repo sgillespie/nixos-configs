@@ -27,7 +27,10 @@
     ];
   };
 
-  programs.browserpass.enable = true;
+  programs = {
+    browserpass.enable = true;
+    sway.enable = true;
+  };
 
   services = {
     autorandr = {
@@ -54,10 +57,10 @@
       };
 
       displayManager = {
-        gdm = {
-          enable = true;
-          wayland = false;
-        };
+        # gdm = {
+        #   enable = true;
+        #   wayland = false;
+        # };
 
         sessionCommands = ''
           autorandr --detected --change --default default
