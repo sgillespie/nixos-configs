@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./nvidia.nix ];
+  imports = [
+    ./nvidia.nix
+    ./wayland.nix
+  ];
   
   environment.systemPackages = with pkgs; [
     chromium
@@ -22,14 +25,17 @@
     fontDir.enable = true;  # This is required for extra fonts
 
     fonts = with pkgs; [
+      roboto-mono
       source-code-pro
       corefonts
+      (nerdfonts.override {
+        fonts = [ "FiraCode" "DroidSansMono" ];
+      })
     ];
   };
 
   programs = {
     browserpass.enable = true;
-    sway.enable = true;
   };
 
   services = {
@@ -57,10 +63,7 @@
       };
 
       displayManager = {
-        # gdm = {
-        #   enable = true;
-        #   wayland = false;
-        # };
+        startx.enable = true;
 
         sessionCommands = ''
           autorandr --detected --change --default default
@@ -68,7 +71,7 @@
       };
         
       desktopManager = {
-        gnome.enable = true;
+        gnome.enable = false;
       };
       
       windowManager.i3 = {

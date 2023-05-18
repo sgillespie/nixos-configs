@@ -21,6 +21,6 @@ with lib;
       nvidia.modesetting.enable = true;
     };
 
-    environment.systemPackages = with pkgs; [ vulkan-tools ];
+    environment.systemPackages = with pkgs; [ vulkan-tools vulkan-validation-layers ];
   };
 }

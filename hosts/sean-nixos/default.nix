@@ -46,12 +46,15 @@
   hardware = {
     enableAllFirmware = true;
     nvidiaUnfree.enable = true;
+    pulseaudio.enable = false;
   };
 
   services = {
     yubikey.enable = true;
     ntp.enable = true;
   };
+
+  programs.wayland.enable = true;
   
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
