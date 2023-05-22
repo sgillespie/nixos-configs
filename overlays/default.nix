@@ -7,4 +7,7 @@ in
 
 {
   elocrypt = haskell.lib.dontCheck haskellPackages.elocrypt;
+  nix-direnv = super.nix-direnv.override {
+    enableFlakes = true;
+  };
 }
