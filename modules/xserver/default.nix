@@ -25,6 +25,7 @@
     fontDir.enable = true;  # This is required for extra fonts
 
     fonts = with pkgs; [
+      roboto
       roboto-mono
       source-code-pro
       corefonts
