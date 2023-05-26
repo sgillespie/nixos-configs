@@ -26,6 +26,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/blockchain" =
+    { device = "/dev/disk/by-label/blockchain";
+      fsType = "ext4";
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-label/swap"; } ];
 
