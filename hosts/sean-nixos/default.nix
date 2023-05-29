@@ -44,6 +44,7 @@
   nixpkgs.config = pkgs.config;
 
   hardware = {
+    bluetooth.enable = true;
     enableAllFirmware = true;
     nvidiaUnfree.enable = true;
     pulseaudio.enable = false;
