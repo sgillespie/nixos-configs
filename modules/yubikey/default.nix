@@ -15,6 +15,11 @@ with lib;
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      pinentry
+      pinentry-gtk2
+    ];
+
     security.pam = {
       u2f.control = "required";
 
