@@ -59,8 +59,7 @@ with lib;
       grim # screenshot functionality
       kitty
       mako # notification system developed by swaywm maintainer
-      swayidle
-      swaylock
+      pavucontrol
       wayland
       wdisplays # tool to configure displays
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
@@ -90,6 +89,8 @@ with lib;
       
       pipewire = {
         enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
         pulse.enable = true;
       };
     };
