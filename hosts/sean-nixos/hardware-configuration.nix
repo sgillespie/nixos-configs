@@ -31,6 +31,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/var/lib/cardano-node" =
+    { device = "/blockchain/cardano";
+      options = [ "bind" ];
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-label/swap"; } ];
 

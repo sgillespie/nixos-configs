@@ -1,7 +1,8 @@
 {
   inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+  inputs.cardanoNode.url = github:input-output-hk/cardano-node;
   
-  outputs = { self, nixpkgs, ... }@attrs:
+  outputs = { self, nixpkgs, cardanoNode, ... }@attrs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -26,7 +27,9 @@
             pkgs = pkgs;
           };
           modules = [
+            cardanoNode.nixosModules.cardano-node
             ./hosts/sean-nixos
+            ./modules/cardano-node
             ./modules/users
             ./modules/yubikey
             ./modules/packages

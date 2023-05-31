@@ -53,6 +53,7 @@
   services = {
     yubikey.enable = true;
     ntp.enable = true;
+    cardano-node.enable = true;
   };
 
   programs.wayland.enable = true;
