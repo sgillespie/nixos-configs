@@ -8,7 +8,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
-  
+
     loader = {
       grub = {
         efiSupport = true;
@@ -24,7 +24,7 @@
   networking = {
     firewall.enable = true;
     hostName = "sean-nixos";
-    
+
     networkmanager = {
       enable = false; # TODO[sgillespie]
       unmanaged = ["interface-name:ve-*"];
@@ -44,10 +44,23 @@
   nixpkgs.config = pkgs.config;
 
   hardware = {
-    bluetooth.enable = true;
     enableAllFirmware = true;
     nvidiaUnfree.enable = true;
-    pulseaudio.enable = false;
+
+    bluetooth = {
+      enable = true;
+
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+        };
+      };
+    };
+
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+    };
   };
 
   services = {
@@ -56,8 +69,8 @@
     cardano-node.enable = true;
   };
 
-  programs.wayland.enable = true;
-  
+  programs.wayland.enable = false;
+
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -69,4 +82,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 }
-
