@@ -27,5 +27,15 @@ with lib;
         login.u2fAuth = true;
       };
     };
+
+    programs = {
+      gnupg.agent = {
+        enable = true;
+        enableSSHSupport = true;
+        pinentryFlavor = "gtk2";
+      };
+
+      ssh.startAgent = false;
+    };
   };
 }
