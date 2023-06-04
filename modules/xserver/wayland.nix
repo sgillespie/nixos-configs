@@ -57,9 +57,7 @@ with lib;
       glib
       gnome3.adwaita-icon-theme
       grim # screenshot functionality
-      kitty
       mako # notification system developed by swaywm maintainer
-      pavucontrol
       wayland
       wdisplays # tool to configure displays
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout

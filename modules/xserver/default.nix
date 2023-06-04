@@ -10,7 +10,9 @@
     chromium
     feh
     firefox
+    kitty
     passff-host
+    pavucontrol
     rofi
     rxvt_unicode
     scrot
@@ -19,6 +21,9 @@
     tdesktop
     xclip
     xdotool
+
+    dracula-theme
+    gnome3.adwaita-icon-theme
   ];
   
   fonts = {
