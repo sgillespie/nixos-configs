@@ -12,7 +12,7 @@ in
 with lib; {
   config = mkIf cfg.enable {
     services.cardano-node = {
-      environment = "preview";
+      environment = "mainnet";
       hostAddr = "0.0.0.0";
     };
   };
