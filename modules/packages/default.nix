@@ -37,6 +37,7 @@
         usbutils
         vimHugeX
         vimPlugins.Syntastic
+        wget
         yubikey-personalization
         zip
         zsh
