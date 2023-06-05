@@ -18,6 +18,8 @@ with lib;
     environment.systemPackages = with pkgs; [
       pinentry
       pinentry-gtk2
+
+      yubioath-flutter
     ];
 
     security.pam = {
