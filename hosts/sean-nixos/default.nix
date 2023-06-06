@@ -66,6 +66,7 @@
   services = {
     yubikey.enable = true;
     ntp.enable = true;
+    postgresql.enable = true;
     cardano-node.enable = true;
   };
 

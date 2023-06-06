@@ -33,6 +33,7 @@
             ./modules/users
             ./modules/yubikey
             ./modules/packages
+            ./modules/postgres
             ./modules/xserver
             ./modules/virtualization
             ./modules/haskell
