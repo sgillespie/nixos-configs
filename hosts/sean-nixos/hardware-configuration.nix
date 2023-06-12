@@ -37,7 +37,8 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-label/swap"; } ];
+    [ # { device = "/dev/disk/by-label/swap"; }
+    ];
 
   boot.initrd.luks = {
     yubikeySupport = true;

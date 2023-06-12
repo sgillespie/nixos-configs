@@ -21,6 +21,12 @@
     };
   };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+    algorithm = "zstd";
+  };
+
   networking = {
     firewall.enable = true;
     hostName = "sean-nixos";
