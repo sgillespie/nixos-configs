@@ -9,7 +9,10 @@ with lib;
 {
   config = mkIf cfg.enable {
     services.postgresql.ensureUsers = [
-      { name = "sgillespie"; }
+      {
+        name = "sgillespie";
+        ensureClauses.superuser = true;
+      }
     ];
 
     environment.systemPackages = with pkgs; [
