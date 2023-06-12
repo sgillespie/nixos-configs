@@ -8,6 +8,7 @@
   
   environment.systemPackages = with pkgs; [
     chromium
+    discord
     evince
     feh
     firefox
