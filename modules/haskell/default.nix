@@ -27,9 +27,12 @@
     systemPackages = with pkgs; [
       cabal-install
       direnv
-      nix-direnv
-      haskell.compiler.ghc96
+      feedback
       haskell-language-server
+      haskell.compiler.ghc96
+      haskellPackages.fourmolu
+      hlint
+      nix-direnv
       stack
     ];
   };
