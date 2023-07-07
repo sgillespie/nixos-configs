@@ -19,16 +19,14 @@ with lib; {
 
     services = {
       cardano-node = {
-        environment = "preprod";
+        environment = "mainnet";
         hostAddr = "0.0.0.0";
-        rtsArgs = [ "-N2" "-I0" "-A16m" "-qg" "-qb" "--disable-delayed-os-memory-return" "-c"];
       };
 
       cardano-db-sync = {
         enable = true;
-        cluster = "preprod";
+        cluster = "mainnet";
         socketPath = cfg.socketPath 0;
-        # disableLedger = true;
       };
 
       postgresql =

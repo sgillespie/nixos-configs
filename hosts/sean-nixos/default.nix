@@ -21,12 +21,6 @@
     };
   };
 
-  zramSwap = {
-    enable = true;
-    memoryPercent = 25;
-    algorithm = "zstd";
-  };
-
   networking = {
     firewall.enable = true;
     hostName = "sean-nixos";
@@ -73,7 +67,7 @@
     yubikey.enable = true;
     ntp.enable = true;
     postgresql.enable = true;
-    cardano-node.enable = false;
+    cardano-node.enable = true;
   };
 
   programs.wayland.enable = false;
