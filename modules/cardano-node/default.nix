@@ -21,6 +21,7 @@ with lib; {
       cardano-node = {
         environment = "mainnet";
         hostAddr = "0.0.0.0";
+        rtsArgs = ["-N2" "-I0" "-A16m" "-qg" "-qb" "--disable-delayed-os-memory-return" "-c"];
       };
 
       cardano-db-sync = {
