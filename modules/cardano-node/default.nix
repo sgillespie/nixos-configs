@@ -46,6 +46,8 @@ with lib; {
             users cardano-db-sync ${postgres.user}
             users cardano-node ${postgres.user}
             users smash ${postgres.user}
+            users postgres ${postgres.user}
+            users sgillespie ${postgres.user}
             users postgres postgres
             users sgillespie sgillespie
 
@@ -65,13 +67,10 @@ with lib; {
 
     systemd.services = {
       cardano-db-sync = {
-        serviceConfig.User = "cardano-node";
-        wantedBy = [];
-      };
-
-      cardano-node = {
-        serviceConfig.Restart = lib.mkForce "no";
-        wantedBy = [];
+        serviceConfig = {
+          User = "cardano-node";
+          Environment = ''EXTRA_DB_SYNC_ARGS="+RTS -c -RTS"'';
+        };
       };
     };
   };
