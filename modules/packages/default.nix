@@ -23,6 +23,7 @@
         gitAndTools.gitFull
         gnumake
         gnupg
+        irssi
         mutt-with-sidebar
         nodejs_latest
         openssh
