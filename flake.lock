@@ -343,11 +343,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1688737969,
-        "narHash": "sha256-3plCJbe0MgQjgLE+5478uiZ/9WwEgyk7AlZvYJbcTAg=",
+        "lastModified": 1690556327,
+        "narHash": "sha256-Os2AVB2dzj7V9lEHGaBY+Zd25SqQdsx+xvyHpi/Y2Zs=",
         "owner": "input-output-hk",
         "repo": "cardano-db-sync",
-        "rev": "f86714484539ac36ec6e0ba4fd27dd29e8742ce8",
+        "rev": "5487b98cf25891880675f0e2828ba740ce6bc1b8",
         "type": "github"
       },
       "original": {
@@ -2270,11 +2270,11 @@
     },
     "nixpkgs_16": {
       "locked": {
-        "lastModified": 1688590700,
-        "narHash": "sha256-ZF055rIUP89cVwiLpG5xkJzx00gEuuGFF60Bs/LM3wc=",
+        "lastModified": 1690640159,
+        "narHash": "sha256-5DZUYnkeMOsVb/eqPYb9zns5YsnQXRJRC8Xx/nPMcno=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f292b4964cb71f9dfbbd30dc9f511d6165cd109b",
+        "rev": "e6ab46982debeab9831236869539a507f670a129",
         "type": "github"
       },
       "original": {
