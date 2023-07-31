@@ -62,6 +62,11 @@ with lib; {
           authentication = ''
             local all all ident map=users
           '';
+
+          settings = {
+            maintenance_work_mem = "2GB";
+            max_parallel_maintenance_workers  = 8;
+          };
         };
     };
 
