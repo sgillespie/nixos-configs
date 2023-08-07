@@ -24,6 +24,7 @@
         gnumake
         gnupg
         irssi
+        jq
         mutt-with-sidebar
         nodejs_latest
         openssh
@@ -32,8 +33,6 @@
         parted
         pass
         python3
-        sbt
-        scala
         unzip
         usbutils
         vimHugeX

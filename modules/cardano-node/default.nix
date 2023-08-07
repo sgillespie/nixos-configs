@@ -74,7 +74,6 @@ with lib; {
       cardano-db-sync = {
         serviceConfig = {
           User = "cardano-node";
-          Environment = ''EXTRA_DB_SYNC_ARGS="+RTS -c -RTS"'';
         };
       };
     };
