@@ -26,6 +26,7 @@
     
     systemPackages = with pkgs; [
       cabal-install
+      cachix
       direnv
       feedback
       haskell-language-server
