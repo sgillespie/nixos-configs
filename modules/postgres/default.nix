@@ -9,6 +9,8 @@ with lib;
 {
   config = mkIf cfg.enable {
     services.postgresql = {
+      ensureDatabases = [ "sgillespie" ];
+
       ensureUsers = [
         {
           name = "sgillespie";
@@ -17,6 +19,8 @@ with lib;
       ];
 
       dataDir = "/blockchain/postgresql/${config.services.postgresql.package.psqlSchema}";
+
+      package = pkgs.postgresql_14;
     };
 
     environment.systemPackages = with pkgs; [

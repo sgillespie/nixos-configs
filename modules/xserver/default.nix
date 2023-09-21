@@ -32,7 +32,7 @@
   fonts = {
     fontDir.enable = true;  # This is required for extra fonts
 
-    fonts = with pkgs; [
+    packages = with pkgs; [
       roboto
       roboto-mono
       source-code-pro
