@@ -19,15 +19,12 @@
     ];
   };
 
+  programs.direnv.enable = true;
+
   environment = {
-    pathsToLink = [
-      "/share/nix-direnv"
-    ];
-    
     systemPackages = with pkgs; [
       cabal-install
       cachix
-      direnv
       feedback
       haskell-language-server
       haskell.compiler.ghc96
