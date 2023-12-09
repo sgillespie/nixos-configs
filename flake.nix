@@ -48,24 +48,24 @@
               ./modules/haskell
             ];
           };
-        };
 
-        sean-work = nixpkgs.lib.nixosSystem {
-          inherit system;
+          sean-work = nixpkgs.lib.nixosSystem {
+            inherit system;
 
-          specialArgs = {
-            inherit attrs;
-            pkgs = pkgs;
+            specialArgs = {
+              inherit attrs;
+              pkgs = pkgs;
+            };
+
+            modules = [
+              ./hosts/sean-work
+              ./modules/users
+              ./modules/packages
+              ./modules/xserver
+              ./modules/virtualization
+              ./modules/haskell
+            ];
           };
-
-          modules = [
-            ./hosts/sean-work
-            ./modules/users
-            ./modules/packages
-            ./modules/xserver
-            ./modules/virtualization
-            ./modules/haskell
-          ];
         };
       };
 }
