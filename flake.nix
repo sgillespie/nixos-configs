@@ -58,9 +58,14 @@
             };
 
             modules = [
+              cardanoNode.nixosModules.cardano-node
+              cardanoDbSync.nixosModules.cardano-db-sync
               ./hosts/sean-work
+              ./modules/cardano-node
               ./modules/users
+              ./modules/yubikey
               ./modules/packages
+              ./modules/postgres
               ./modules/xserver
               ./modules/virtualization
               ./modules/haskell

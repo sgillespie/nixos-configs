@@ -68,10 +68,10 @@
   };
 
   services = {
-    yubikey.enable = true;
+    yubikey.enable = false;
     ntp.enable = true;
-    postgresql.enable = true;
-    cardano-node.enable = true;
+    postgresql.enable = false;
+    cardano-node.enable = false;
   };
 
   programs.wayland.enable = false;
