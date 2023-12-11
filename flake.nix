@@ -23,52 +23,38 @@
           allowUnfree = true;
         };
       };
+
+      modules = [
+        cardanoNode.nixosModules.cardano-node
+        cardanoDbSync.nixosModules.cardano-db-sync
+        ./modules/cardano-node
+        ./modules/users
+        ./modules/yubikey
+        ./modules/packages
+        ./modules/postgres
+        ./modules/xserver
+        ./modules/virtualization
+        ./modules/haskell
+      ];
+
+      specialArgs = {
+        inherit attrs pkgs;
+      };
     in
       {
         nixosConfigurations = {
           sean-nixos = nixpkgs.lib.nixosSystem {
-            inherit system;
-
-            specialArgs = {
-              inherit attrs;
-              pkgs = pkgs;
-            };
-
-            modules = [
-              cardanoNode.nixosModules.cardano-node
-              cardanoDbSync.nixosModules.cardano-db-sync
-              ./hosts/sean-nixos
-              ./modules/cardano-node
-              ./modules/users
-              ./modules/yubikey
-              ./modules/packages
-              ./modules/postgres
-              ./modules/xserver
-              ./modules/virtualization
-              ./modules/haskell
-            ];
+            inherit system specialArgs;
+            modules = modules ++ [./hosts/sean-nixos];
           };
 
           sean-work = nixpkgs.lib.nixosSystem {
-            inherit system;
-
-            specialArgs = {
-              inherit attrs;
-              pkgs = pkgs;
-            };
-
-            modules = [
-              cardanoNode.nixosModules.cardano-node
-              cardanoDbSync.nixosModules.cardano-db-sync
+            inherit system specialArgs;
+            modules = modules ++ [
+              ./modules/bluetooth
+              ./modules/console
+              ./modules/networking
               ./hosts/sean-work
-              ./modules/cardano-node
-              ./modules/users
-              ./modules/yubikey
-              ./modules/packages
-              ./modules/postgres
-              ./modules/xserver
-              ./modules/virtualization
-              ./modules/haskell
             ];
           };
         };

@@ -5,14 +5,13 @@
     ./nvidia.nix
     ./wayland.nix
   ];
-  
+
   environment.systemPackages = with pkgs; [
     chromium
     discord
     element-desktop
     evince
     feh
-    firefox
     kitty
     passff-host
     pavucontrol
@@ -28,7 +27,7 @@
     dracula-theme
     gnome3.adwaita-icon-theme
   ];
-  
+
   fonts = {
     fontDir.enable = true;  # This is required for extra fonts
 
@@ -45,6 +44,11 @@
 
   programs = {
     browserpass.enable = true;
+
+    firefox = {
+      enable = true;
+      nativeMessagingHosts.browserpass = true;
+    };
   };
 
   services = {
@@ -64,7 +68,7 @@
 
       digimend.enable = true;
       wacom.enable = true;
-      
+
       extraLayouts."3l-emacs" = {
         description = "3l optimized for emacs";
         languages = ["eng"];
@@ -78,11 +82,11 @@
           autorandr --detected --change --default default
         '';
       };
-        
+
       desktopManager = {
         gnome.enable = false;
       };
-      
+
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [

@@ -3,7 +3,11 @@
 {
   programs.zsh.enable = true;
   security.sudo.wheelNeedsPassword = false;
-  
+
+  nix.settings = {
+    trusted-users = ["root" "@wheel"];
+  };
+
   users.extraUsers = {
     root.initialHashedPassword = "";
 

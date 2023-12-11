@@ -7,7 +7,7 @@
     ];
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
+    # kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
 
     loader = {
       grub = {
@@ -21,63 +21,31 @@
     };
   };
 
-  networking = {
-    firewall.enable = true;
-    hostName = "sean-work";
-
-    networkmanager = {
-      enable = false; # TODO[sgillespie]
-      unmanaged = ["interface-name:ve-*"];
-    };
-
-    nat = {
-      enable = true;
-      internalInterfaces = ["ve-+"];
-    };
-  };
-
-  nix.settings = {
-    trusted-users = ["root" "@wheel"];
-  };
-
-  console = {
-    font = "Lat2-Terminus16";
-    useXkbConfig = true;
-  };
+  networking.hostName = "sean-work";
 
   nixpkgs.config = pkgs.config;
 
   hardware = {
-    enableAllFirmware = true;
+    system76 = {
+      enableAll = true;
+      power-daemon.enable = true;
+    };
+
     nvidiaUnfree.enable = true;
-
-    bluetooth = {
-      enable = true;
-
-      settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-        };
-      };
-    };
-
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-    };
+    bluetooth.enable = true;
   };
 
+  environment.systemPackages = [pkgs.acpi];
+
   services = {
-    yubikey.enable = false;
+    logind.lidSwitchExternalPower = "ignore";
+    yubikey.enable = true;
     ntp.enable = true;
-    postgresql.enable = false;
-    cardano-node.enable = false;
+    postgresql.enable = true;
+    cardano-node.enable = true;
   };
 
   programs.wayland.enable = false;
-
-  time.timeZone = "America/New_York";
-  i18n.defaultLocale = "en_US.UTF-8";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
