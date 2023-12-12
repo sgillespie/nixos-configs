@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -21,7 +21,10 @@
     };
   };
 
-  networking.hostName = "sean-nixos";
+  networking = {
+    hostName = "sean-nixos";
+    networkmanager.enable = lib.mkForce false;
+  };
 
   nixpkgs.config = pkgs.config;
 

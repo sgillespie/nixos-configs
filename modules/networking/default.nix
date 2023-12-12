@@ -1,8 +1,8 @@
-{ config, pkgs, ...}:
+{ config, pkgs, lib, ...}:
 {
   networking = {
     networkmanager = {
-      enable = true;
+      enable = lib.mkDefault true;
       unmanaged = ["interface-name:ve-*"];
     };
 
