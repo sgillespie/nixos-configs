@@ -27,7 +27,10 @@
       modules = [
         cardanoNode.nixosModules.cardano-node
         cardanoDbSync.nixosModules.cardano-db-sync
+        ./modules/bluetooth
         ./modules/cardano-node
+        ./modules/console
+        ./modules/networking
         ./modules/users
         ./modules/yubikey
         ./modules/packages
@@ -50,12 +53,7 @@
 
           sean-work = nixpkgs.lib.nixosSystem {
             inherit system specialArgs;
-            modules = modules ++ [
-              ./modules/bluetooth
-              ./modules/console
-              ./modules/networking
-              ./hosts/sean-work
-            ];
+            modules = modules ++ [./hosts/sean-work];
           };
         };
       };

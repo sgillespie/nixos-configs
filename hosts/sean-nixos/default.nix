@@ -21,50 +21,13 @@
     };
   };
 
-  networking = {
-    firewall.enable = true;
-    hostName = "sean-nixos";
-
-    networkmanager = {
-      enable = false; # TODO[sgillespie]
-      unmanaged = ["interface-name:ve-*"];
-    };
-
-    nat = {
-      enable = true;
-      internalInterfaces = ["ve-+"];
-    };
-  };
-
-  nix.settings = {
-    trusted-users = ["root" "@wheel"];
-  };
-
-  console = {
-    font = "Lat2-Terminus16";
-    useXkbConfig = true;
-  };
+  networking.hostName = "sean-nixos";
 
   nixpkgs.config = pkgs.config;
 
   hardware = {
-    enableAllFirmware = true;
     nvidiaUnfree.enable = true;
-
-    bluetooth = {
-      enable = true;
-
-      settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-        };
-      };
-    };
-
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-    };
+    bluetooth.enable = true;
   };
 
   services = {
@@ -75,9 +38,6 @@
   };
 
   programs.wayland.enable = false;
-
-  time.timeZone = "America/New_York";
-  i18n.defaultLocale = "en_US.UTF-8";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
