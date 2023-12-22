@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  emacsConfig = builtins.readFile ./config/emacs/init.el;
+  emacsConfig = builtins.readFile ./config/emacs/default.el;
 in {
   home-manager = {
     useGlobalPkgs = true;
