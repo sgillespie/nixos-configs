@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+REMOTE=$1
+URL=$2
+
+if [[ "$REMOTE" = "upstream" ]]; then
+    echo "Cowardly refusing to push to 'upstream'" >&2
+    exit 2
+fi
