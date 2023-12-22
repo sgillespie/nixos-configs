@@ -16,9 +16,17 @@ in {
         extraConfig = emacsConfig;
       };
 
+      home.file = {
+        ".bashrc".source = ./config/bash/bashrc;
+        ".zshrc".source = ./config/zsh/zshrc;
+      };
+
       xdg.configFile = {
+        "bash".source = ./config/bash;
         "git".source = ./config/git;
-        "kitty".source = ./config;
+        "kitty".source = ./config/kitty;
+        "tmux".source = ./config/tmux;
+        "zsh".source = ./config/zsh;
       };
     };
   };

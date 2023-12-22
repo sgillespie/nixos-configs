@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Prompt
+source $HOME/.config/bash/prompt.bash
+
+# aliases
+if [[ ! -n "${EC+DEFINED}" ]]; then
+    EC=emacsclient
+fi
+
+# Variables
+alias ec="$EC -n"
+export EDITOR="emacsclient"
+
+# make sure color output is set
+export CLICOLOR=
+
+# Make it easy to redirect output to emacs
+function ecbuffer {
+    TMP="$(mktemp /tmp/emacsstdinXXX)"
+    cat > $TMP
+    ec --alternate-editor /usr/bin/false --eval "(let ((b (create-file-buffer \"*stdin*\"))) (switch-to-buffer b) (insert-file-contents \"${TMP}\"))"
+    rm $TMP
+}

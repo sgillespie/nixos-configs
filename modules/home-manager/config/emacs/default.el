@@ -6,7 +6,7 @@
 (setq-default fill-column 90)
 (setq-default indent-tabs-mode nil)
 (setq-default make-backup-files nil)
-(setq-default neo-window-width nil)
+(setq-default neo-window-width 40)
 (setq-default
  package-archives
  '(("melpa" . "https://melpa.org/packages/")
