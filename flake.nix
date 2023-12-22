@@ -3,8 +3,12 @@
   inputs.cardanoNode.url = github:input-output-hk/cardano-node?ref=8.0.0;
   inputs.cardanoDbSync.url = github:IntersectMBO/cardano-db-sync;
   inputs.feedback.url = github:NorfairKing/feedback;
+  inputs.homeManager = {
+    url = "github:nix-community/home-manager";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
-  outputs = { self, nixpkgs, cardanoNode, cardanoDbSync, ... }@attrs:
+  outputs = { self, nixpkgs, cardanoNode, cardanoDbSync, homeManager, ... }@attrs:
     let
       system = "x86_64-linux";
 
@@ -27,9 +31,11 @@
       modules = [
         cardanoNode.nixosModules.cardano-node
         cardanoDbSync.nixosModules.cardano-db-sync
+        homeManager.nixosModules.home-manager
         ./modules/bluetooth
         ./modules/cardano-node
         ./modules/console
+        ./modules/home-manager
         ./modules/networking
         ./modules/users
         ./modules/yubikey

@@ -1,0 +1,29 @@
+[alias]
+        ff = merge --ff-only
+        nff = merge --no-ff
+        f = fetch --all
+        fff = !git f && git ff
+[branch]
+	autosetuprebase = remote
+[color]
+	diff = auto
+	status = auto
+[commit]
+	gpgSign = true
+[diff]
+	mnemonicprefix = true
+[init]
+	defaultBranch = main
+[log]
+	decorate = short
+	showSignature = true
+[merge]
+	defaultToUpstream = true
+[push]
+	default = tracking
+[rerere]
+	enabled = true
+[user]
+	email = sean@mistersg.net
+	name = Sean D Gillespie
+        signingkey = 163ED0907B84F3E9

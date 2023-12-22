@@ -2011,6 +2011,26 @@
         "type": "github"
       }
     },
+    "homeManager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1703178811,
+        "narHash": "sha256-Orbqa8DvszYZ38XGWAs43hVs++czt2N6/Y0sFRLhJms=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "fb5ac0c870a1b3ffea70e02ab1720d991ce812ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "hpc-coveralls": {
       "flake": false,
       "locked": {
@@ -3806,6 +3826,7 @@
         "cardanoDbSync": "cardanoDbSync",
         "cardanoNode": "cardanoNode",
         "feedback": "feedback",
+        "homeManager": "homeManager",
         "nixpkgs": "nixpkgs_25"
       }
     },
