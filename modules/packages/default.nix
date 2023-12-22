@@ -17,7 +17,6 @@
         docker-compose
         elinks
         elocrypt
-        emacs
         gcc
         git-lfs
         gitAndTools.gitFull
