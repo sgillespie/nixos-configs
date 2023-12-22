@@ -47,7 +47,8 @@
 
     firefox = {
       enable = true;
-      nativeMessagingHosts.browserpass = true;
+      # TODO[sgillespie]: Reenable this once this is fixed in nixpkgs
+      # nativeMessagingHosts.packages = [pkgs.browserpass];
     };
   };
 
