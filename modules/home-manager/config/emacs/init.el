@@ -1,3 +1,19 @@
+;;; Custom set variables
+(setq-default auto-save-default nil)
+(setq-default auto-save-mode nil)
+(setq-default backup-directory-alist '(("." . "~/.emacs_backups")))
+(setq-default company-idle-delay nil)
+(setq-default fill-column 90)
+(setq-default indent-tabs-mode nil)
+(setq-default make-backup-files nil)
+(setq-default neo-window-width nil)
+(setq-default
+ package-archives
+ '(("melpa" . "https://melpa.org/packages/")
+   ("elpa" . "https://elpa.gnu.org/packages/")))
+(setq-default truncate-lines t)
+(setq-default warning-suppress-types '((direnv) (comp)))
+
 ;;; Start the emacs server
 (add-hook 'after-init-hook 'server-start)
 
