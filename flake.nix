@@ -46,6 +46,8 @@
         ./modules/haskell
       ];
 
+
+
       specialArgs = {
         inherit attrs pkgs;
       };
@@ -62,5 +64,7 @@
             modules = modules ++ [./hosts/sean-work];
           };
         };
+
+        legacyPackages = pkgs;
       };
 }

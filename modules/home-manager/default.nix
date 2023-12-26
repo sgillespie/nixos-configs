@@ -19,6 +19,7 @@ in {
       home.file = {
         ".bashrc".source = ./config/bash/bashrc;
         ".zshrc".source = ./config/zsh/zshrc;
+        ".local/libexec/i3blocks".source = "${pkgs.i3blocks-contrib}/libexec/i3blocks";
       };
 
       xdg.configFile = {
@@ -29,6 +30,7 @@ in {
         "kitty".source = ./config/kitty;
         "tmux".source = ./config/tmux;
         "zsh".source = ./config/zsh;
+        "i3blocks-contrib".source = pkgs.i3blocks-contrib;
       };
     };
   };
