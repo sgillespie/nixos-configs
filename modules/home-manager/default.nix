@@ -24,6 +24,8 @@ in {
       xdg.configFile = {
         "bash".source = ./config/bash;
         "git".source = ./config/git;
+        "i3".source = ./config/i3;
+        "i3blocks".source = ./config/i3blocks;
         "kitty".source = ./config/kitty;
         "tmux".source = ./config/tmux;
         "zsh".source = ./config/zsh;
