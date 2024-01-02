@@ -40,7 +40,7 @@ with lib; {
               ensureClauses.superuser = true;
             }
           ];
-          
+
           identMap = ''
             users root ${postgres.user}
             users cardano-db-sync ${postgres.user}
@@ -70,12 +70,16 @@ with lib; {
         };
     };
 
-    systemd.services = {
-      cardano-db-sync = {
-        serviceConfig = {
-          User = "cardano-node";
+    systemd.services =
+      let
+        dbSync = config.services.cardano-db-sync;
+      in
+        lib.optionalAttrs dbSync.enable {
+          cardano-db-sync = {
+            serviceConfig = {
+              User = "cardano-node";
+            };
+          };
         };
-      };
-    };
   };
 }

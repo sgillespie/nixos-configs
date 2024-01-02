@@ -46,8 +46,6 @@
         ./modules/haskell
       ];
 
-
-
       specialArgs = {
         inherit attrs pkgs;
       };
