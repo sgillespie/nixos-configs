@@ -169,6 +169,9 @@
 (use-package emacsql
   :ensure t)
 
+(use-package haskell-mode
+  :ensure t)
+
 (use-package flymake-shellcheck
   :commands flymake-shellcheck-load
   :init
