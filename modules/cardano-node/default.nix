@@ -15,6 +15,7 @@ with lib; {
   config = mkIf cfg.enable {
     environment.systemPackages = [
       cardanoNode.legacyPackages."${currentSystem}".cardano-cli
+      cardanoNode.legacyPackages."${currentSystem}".cardano-node
     ];
 
     services = {
