@@ -680,11 +680,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1706108330,
-        "narHash": "sha256-7Se7LDOy0jV7cS3sEYYVpTB3qehQuB1anQq1ffHLt0k=",
+        "lastModified": 1707994615,
+        "narHash": "sha256-7usWK1tCMnIYyTHqvtGEZJ8Lz4oPlgWD0L+VhrrHiCU=",
         "owner": "IntersectMBO",
         "repo": "cardano-db-sync",
-        "rev": "520bd28d3770fc9fecb19c6e06946579169125fc",
+        "rev": "045330da2352504f67f68a0b870cc5e08951810b",
         "type": "github"
       },
       "original": {
@@ -2018,11 +2018,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1706306660,
-        "narHash": "sha256-lZvgkHtVeduGByPb0Tz9LpAi4olfkEm8XPgv0o7GRsk=",
+        "lastModified": 1708591310,
+        "narHash": "sha256-8mQGVs8JccWTnORgoLOTh9zvf6Np+x2JzhIc+LDcJ9s=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b2f56952074cb46e93902ecaabfb04dd93733434",
+        "rev": "0e0e9669547e45ea6cca2de4044c1a384fd0fe55",
         "type": "github"
       },
       "original": {
@@ -3559,11 +3559,11 @@
     },
     "nixpkgs_25": {
       "locked": {
-        "lastModified": 1706191920,
-        "narHash": "sha256-eLihrZAPZX0R6RyM5fYAWeKVNuQPYjAkCUBr+JNvtdE=",
+        "lastModified": 1708475490,
+        "narHash": "sha256-g1v0TsWBQPX97ziznfJdWhgMyMGtoBFs102xSYO4syU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ae5c332cbb5827f6b1f02572496b141021de335f",
+        "rev": "0e74ca98a74bc7270d28838369593635a5db3260",
         "type": "github"
       },
       "original": {
