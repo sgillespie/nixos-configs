@@ -63,17 +63,18 @@
     xserver = {
       enable = true;
       enableCtrlAltBackspace = true;
-      layout = "3l-emacs";
-
       libinput.enable = true;
-
       digimend.enable = true;
       wacom.enable = true;
 
-      extraLayouts."3l-emacs" = {
-        description = "3l optimized for emacs";
-        languages = ["eng"];
-        symbolsFile = ./3l-emacs.xkb;
+      xkb = {
+        layout = "3l-emacs";
+
+        extraLayouts."3l-emacs" = {
+          description = "3l optimized for emacs";
+          languages = ["eng"];
+          symbolsFile = ./3l-emacs.xkb;
+        };
       };
 
       displayManager = {
