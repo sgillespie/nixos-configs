@@ -177,6 +177,9 @@
   :init
   (add-hook 'sh-mode-hook 'flymake-shellcheck-load))
 
+(use-package markdown-mode
+  :ensure t)
+
 (use-package nix-mode
   :ensure t)
 
