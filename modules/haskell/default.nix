@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
-{
+let
+  # TODO[sgillespie]: Is this the right place?
+  agda = pkgs.agda.withPackages (p: [ p.standard-library ]);
+in {
   nix.settings = {
     allow-import-from-derivation = true;
     keep-outputs = true;
@@ -21,6 +24,7 @@
 
   environment = {
     systemPackages = with pkgs; [
+      agda
       cabal-install
       cachix
       feedback

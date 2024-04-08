@@ -23,6 +23,7 @@ in {
       };
 
       xdg.configFile = {
+        "agda".source = ./config/agda;
         "bash".source = ./config/bash;
         "git".source = ./config/git;
         "i3".source = ./config/i3;
