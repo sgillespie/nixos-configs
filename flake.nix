@@ -3,17 +3,11 @@
   inputs.cardanoNode.url = github:input-output-hk/cardano-node?ref=8.7.3;
   inputs.cardanoDbSync = {
     url = github:IntersectMBO/cardano-db-sync;
-    inputs.iohkNix.follows = "iohkNix";
   };
   inputs.feedback.url = github:NorfairKing/feedback;
   inputs.homeManager = {
     url = "github:nix-community/home-manager";
     inputs.nixpkgs.follows = "nixpkgs";
-  };
-  # Remove me after #1650 is merged
-  inputs.iohkNix = {
-    url = "github:input-output-hk/iohk-nix";
-    inputs.nixpkgs.follows = "cardanoDbSync/nixpkgs";
   };
 
   outputs = { self, nixpkgs, cardanoNode, cardanoDbSync, homeManager, ... }@attrs:
