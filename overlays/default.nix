@@ -1,4 +1,4 @@
-{ feedback }:
+{ feedback, gibberish, ... }:
 self: super:
 
 let
@@ -7,7 +7,7 @@ let
 in
 
 {
-  inherit feedback;
+  inherit feedback gibberish;
 
   elocrypt = haskell.lib.dontCheck haskellPackages.elocrypt;
 

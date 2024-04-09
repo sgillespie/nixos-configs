@@ -1,13 +1,16 @@
 {
-  inputs.nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
-  inputs.cardanoNode.url = github:input-output-hk/cardano-node?ref=8.7.3;
-  inputs.cardanoDbSync = {
-    url = github:IntersectMBO/cardano-db-sync;
-  };
-  inputs.feedback.url = github:NorfairKing/feedback;
-  inputs.homeManager = {
-    url = "github:nix-community/home-manager";
-    inputs.nixpkgs.follows = "nixpkgs";
+  inputs = {
+    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+    cardanoNode.url = github:input-output-hk/cardano-node?ref=8.7.3;
+    cardanoDbSync.url = github:IntersectMBO/cardano-db-sync;
+    feedback.url = github:NorfairKing/feedback;
+    homeManager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Remove me after gibberish is added to haskellPackages
+    gibberish.url = "github:sgillespie/gibberish";
   };
 
   outputs = { self, nixpkgs, cardanoNode, cardanoDbSync, homeManager, ... }@attrs:
@@ -20,6 +23,7 @@
         overlays = [
           (import ./overlays {
             feedback = attrs.feedback.packages.${system}.default;
+            gibberish = attrs.gibberish.packages.${system}.default;
           })
         ];
 

@@ -18,6 +18,7 @@
         elinks
         elocrypt
         gcc
+        gibberish
         git-lfs
         gitAndTools.gitFull
         gnumake
