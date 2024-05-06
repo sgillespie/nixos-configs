@@ -255,3 +255,5 @@ bar {
                binding_mode        $base00 $base0A $base00
     }
 }
+
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc

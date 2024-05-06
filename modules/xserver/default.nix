@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     chromium
     discord
+    dunst
     element-desktop
     evince
     feh
