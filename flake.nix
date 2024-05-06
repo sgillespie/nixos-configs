@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
-    cardanoNode.url = github:input-output-hk/cardano-node?ref=8.7.3;
+    cardanoNode.url = github:input-output-hk/cardano-node?ref=8.9.0;
     cardanoDbSync.url = github:IntersectMBO/cardano-db-sync;
     feedback.url = github:NorfairKing/feedback;
     homeManager = {
