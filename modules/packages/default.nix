@@ -23,6 +23,7 @@
         gitAndTools.gitFull
         gnumake
         gnupg
+        iamb
         irssi
         jq
         mutt-with-sidebar
