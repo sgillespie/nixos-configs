@@ -66,7 +66,7 @@ with lib; {
 
           settings = {
             # Snapshot creation requires more than 20 connections
-            max_connections = 30;
+            max_connections = 50;
             shared_buffers = "16GB";
             effective_cache_size = "48GB";
             maintenance_work_mem = "2GB";
