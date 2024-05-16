@@ -1,0 +1,5 @@
+[profiles."matrix.org"]
+user_id = "@sgillespie:matrix.org"
+
+[settings.notifications]
+enabled = true
