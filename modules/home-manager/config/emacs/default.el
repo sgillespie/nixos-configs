@@ -76,6 +76,8 @@
 (global-set-key (kbd "C-c v") 'ivy-push-view)
 (global-set-key (kbd "C-c V") 'ivy-pop-view)
 
+(global-set-key (kbd "C-'") #'imenu-list-smart-toggle)
+
 ;;; Packages
 (require 'package)
 (package-initialize)
@@ -109,10 +111,10 @@
      "#=" "!=" "!==" "=!=" "=:="
      "::" ":::" ":<:" ":>:" "||"
      "|>" "||>" "|||>" "<|" "<||"
-     "<|||" "**" " ***" "<*" "<*>"
-     "*>" "<+" "<+>" "+>" "<$"
-     "<$>" "$>" "&&" "??" "%%"
-     "|]" "[|" "//" "///"))
+     "<|||" "**" " ***" "<*" "<**"
+     "<*>" "<**>" "*>" "**>" "<+"
+     "<+>" "+>" "<$" "<$>" "$>" "&&"
+     "??" "%%" "|]" "[|" "//" "///"))
   (global-ligature-mode))
 
 (use-package company
@@ -123,6 +125,9 @@
 (use-package counsel
   :ensure t
   :config (ivy-mode 1))
+
+(use-package imenu-list
+  :ensure t)
 
 (use-package neotree
   :ensure t
