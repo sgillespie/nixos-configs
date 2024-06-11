@@ -67,6 +67,11 @@
             inherit system specialArgs;
             modules = modules ++ [./hosts/sean-work];
           };
+
+          sean-pi = nixpkgs.lib.nixosSystem {
+            system = "aarch64-linux";
+            modules = [./hosts/sean-pi];
+          };
         };
 
         legacyPackages = pkgs;
