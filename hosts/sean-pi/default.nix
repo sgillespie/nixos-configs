@@ -26,17 +26,7 @@
     zip
   ];
 
-  services.home-assistant = {
-    enable = true;
-    config = {
-      homeassistant = {
-        name = "Home";
-        http = {};
-        openFirewall = true;
-      };
-    };
-  };
-
+  services.home-assistant.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

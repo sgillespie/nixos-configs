@@ -8,5 +8,14 @@ with lib;
 
 {
   config = mkIf cfg.enable {
+    services.home-assistant = {
+      config = {
+        homeassistant = {
+          name = "Home";
+          http = {};
+          openFirewall = true;
+        };
+      };
+    };
   };
 }

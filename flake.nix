@@ -83,6 +83,7 @@
 
               homeManager.nixosModules.home-manager
               ./modules/console
+              ./modules/home-assistant
               ./modules/home-manager
               ./modules/networking
               ./modules/users
