@@ -79,6 +79,10 @@
                     gibberish = attrs.gibberish.packages.${system}.default;
                   })
                 ];
+                nixpkgs.config = {
+                  allowUnfree = true;
+                  allowUnsupportedSystem = true;
+                };
               }
 
               homeManager.nixosModules.home-manager
