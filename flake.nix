@@ -70,7 +70,24 @@
 
           sean-pi = nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
-            modules = [./hosts/sean-pi];
+
+            modules = [
+              {
+                nixpkgs.overlays = [
+                  (import ./overlays {
+                    feedback = attrs.feedback.packages.${system}.default;
+                    gibberish = attrs.gibberish.packages.${system}.default;
+                  })
+                ];
+              }
+
+              homeManager.nixosModules.home-manager
+              ./modules/console
+              ./modules/home-manager
+              ./modules/networking
+              ./modules/users
+              ./hosts/sean-pi
+            ];
           };
         };
 

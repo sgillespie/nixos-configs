@@ -14,31 +14,17 @@
 
   networking = {
     hostName = "sean-pi";
-  };
-
-  # Set your time zone.
-  time.timeZone = "America/New_York";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    useXkbConfig = true;
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.sgillespie = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    networkmanager.enable = lib.mkForce false;
   };
 
   environment.systemPackages = with pkgs; [
+    curl
+    parted
     vim
     git
     wget
+    zip
   ];
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
