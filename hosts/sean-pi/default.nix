@@ -19,6 +19,7 @@
 
   environment.systemPackages = with pkgs; [
     curl
+    deconz
     parted
     vim
     git
