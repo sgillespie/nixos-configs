@@ -15,6 +15,9 @@ with lib;
           "esphome"
           "met"
           "radio_browser"
+
+          # Zigbee
+          "zha"
         ];
 
         config = {
