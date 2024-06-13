@@ -47,9 +47,10 @@ with lib;
         enable = true;
         recommendedProxySettings = false;
 
-        virtualHosts."home-assistant.local" = {
+        virtualHosts."home-assistant.mistersg.net" = {
           forceSSL = true;
           enableACME = true;
+          acmeRoot = null;
           extraConfig = ''
             proxy_buffering off;
           '';
@@ -70,7 +71,7 @@ with lib;
 
       hosts = {
         "192.168.0.100" = [
-          "home-assistant.local"
+          "home-assistant.mistersg.net"
           "dnsmasq.local"
         ];
       };
@@ -78,9 +79,11 @@ with lib;
 
     security.acme = {
       acceptTerms = true;
-      # TODO: Currently I'm only doing this to automatically create a self-signed
-      # certificate, but eventually I'd like signed certificate
-      defaults.email = "admin+acme@local";
+      defaults = {
+        email = "sean@misters.net";
+        dnsProvider = "dreamhost";
+        environmentFile = "/var/lib/secrets/certs.secret";
+      };
     };
   };
 }
