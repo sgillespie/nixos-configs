@@ -15,6 +15,12 @@
   networking = {
     hostName = "sean-pi";
     networkmanager.enable = lib.mkForce false;
+
+    hosts = {
+      "192.168.0.100" = [
+        "pi.local"
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
