@@ -27,6 +27,9 @@ with lib;
             name = "Home";
           };
 
+          "automation manual"  = [];
+          "automation ui" = "!include automations.yaml";
+
           http = {
             server_host = "::1";
             trusted_proxies = [ "::1" ];
