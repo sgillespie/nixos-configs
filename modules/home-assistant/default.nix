@@ -18,6 +18,9 @@ with lib;
 
           # Zigbee
           "zha"
+
+          # MQTT
+          "mqtt"
         ];
 
         config = {
@@ -49,21 +52,80 @@ with lib;
         };
       };
 
+      mosquitto = {
+        enable = true;
+        listeners = [
+          {
+            users.zigbee2mqtt = {
+              acl = [ "readwrite #" ];
+              hashedPasswordFile = /etc/mosquitto/passwd;
+            };
+          }
+        ];
+      };
+
       nginx = {
         enable = true;
         recommendedProxySettings = false;
 
-        virtualHosts."home-assistant.mistersg.net" = {
-          forceSSL = true;
-          enableACME = true;
-          acmeRoot = null;
-          extraConfig = ''
-            proxy_buffering off;
-          '';
+        virtualHosts = {
+          "home-assistant.mistersg.net" = {
+            forceSSL = true;
+            enableACME = true;
+            acmeRoot = null;
+            extraConfig = ''
+              proxy_buffering off;
+            '';
 
-          locations."/" = {
-            proxyPass = "http://[::1]:8123";
-            proxyWebsockets = true;
+            locations."/" = {
+              proxyPass = "http://[::1]:8123";
+              proxyWebsockets = true;
+            };
+          };
+
+          "mqtt.mistersg.net" = {
+            forceSSL = true;
+            enableACME = true;
+            acmeRoot = null;
+
+            locations."/" = {
+              proxyPass = "http://[::1]:8080";
+              proxyWebsockets = true;
+              recommendedProxySettings = true;
+            };
+          };
+        };
+      };
+
+      zigbee2mqtt = {
+        enable = true;
+        settings = {
+          mqtt = {
+            user = "!secret.yaml user";
+            password = "!secret.yaml password";
+          };
+
+          permit_join = false;
+
+          homeassistant = {
+            legacy_entity_attributes = false;
+            legacy_triggers = false;
+          };
+
+          serial = {
+            port = "/dev/ttyACM0";
+          };
+
+          frontend = {
+            port = 8080;
+            url = "https://zigbee2mqtt.mistersg.net";
+          };
+
+          advanced = {
+            channel = 20;
+            ext_pan_id = [ 195 20 220 117 23 145 33 126 ];
+            network_key = [ 34 209 12 177 145 106 82 85 90 221 6 230 86 32 47 167 ];
+            pan_id = 25316;
           };
         };
       };
@@ -78,6 +140,7 @@ with lib;
       hosts = {
         "192.168.0.100" = [
           "home-assistant.mistersg.net"
+          "mqtt.mistersg.net"
           "dnsmasq.local"
         ];
       };
