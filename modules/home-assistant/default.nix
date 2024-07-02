@@ -104,6 +104,7 @@ with lib;
             forceSSL = true;
             enableACME = true;
             acmeRoot = null;
+            basicAuthFile = /etc/nginx/z2m.htpasswd;
 
             locations."/" = {
               proxyPass = "http://[::1]:8080";
