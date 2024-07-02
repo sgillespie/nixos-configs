@@ -38,6 +38,23 @@ with lib;
             trusted_proxies = [ "::1" ];
             use_x_forwarded_for = true;
           };
+
+          alarm_control_panel = {
+            platform = "manual";
+            name = "Security Alarm";
+            code = "!secret control_panel_code";
+            code_arm_required = false;
+
+            armed_home = {
+              delay_time = 0;
+              arming_time = 0;
+            };
+
+            armed_away = {
+              delay_time = 120;
+              arming_time = 120;
+            };
+          };
         };
       };
 
