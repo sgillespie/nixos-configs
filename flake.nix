@@ -4,8 +4,14 @@
     cardanoNode.url = github:input-output-hk/cardano-node?ref=8.9.0;
     cardanoDbSync.url = github:IntersectMBO/cardano-db-sync;
     feedback.url = github:NorfairKing/feedback;
+
     homeManager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -13,7 +19,7 @@
     gibberish.url = "github:sgillespie/gibberish";
   };
 
-  outputs = { self, nixpkgs, cardanoNode, cardanoDbSync, homeManager, ... }@attrs:
+  outputs = { self, nixpkgs, cardanoNode, cardanoDbSync, homeManager, sops, ... }@attrs:
     let
       system = "x86_64-linux";
 
@@ -38,6 +44,7 @@
         cardanoNode.nixosModules.cardano-node
         cardanoDbSync.nixosModules.cardano-db-sync
         homeManager.nixosModules.home-manager
+        sops.nixosModules.sops
         ./modules/bluetooth
         ./modules/cardano-node
         ./modules/console
@@ -47,6 +54,7 @@
         ./modules/yubikey
         ./modules/packages
         ./modules/postgres
+        ./modules/sops
         ./modules/xserver
         ./modules/virtualization
         ./modules/haskell

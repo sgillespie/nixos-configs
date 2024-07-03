@@ -45,6 +45,8 @@
     cardano-node.enable = true;
   };
 
+  sops.enable = true;
+
   programs.wayland.enable = false;
 
   # This value determines the NixOS release from which the default
