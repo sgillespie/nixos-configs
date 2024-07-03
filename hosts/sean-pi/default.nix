@@ -25,7 +25,6 @@
 
   environment.systemPackages = with pkgs; [
     curl
-    deconz
     parted
     vim
     git
@@ -34,6 +33,7 @@
   ];
 
   services.home-assistant.enable = true;
+  sops.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

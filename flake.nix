@@ -86,15 +86,6 @@
                     feedback = attrs.feedback.packages.${system}.default;
                     gibberish = attrs.gibberish.packages.${system}.default;
                   })
-
-                  (final: prev: {
-                    deconz = prev.deconz.overrideAttrs (old: {
-                      src = final.fetchurl {
-                        url = "https://deconz.dresden-elektronik.de/raspbian/beta/deconz-${old.version}-qt5.deb";
-                        sha256 = "sha256-XZXNB0DQpKjW1noWFo/rpp6OQB1BSyC0q7YV72hzsDs";
-                      };
-                    });
-                  })
                 ];
                 nixpkgs.config = {
                   allowUnfree = true;
@@ -103,10 +94,12 @@
               }
 
               homeManager.nixosModules.home-manager
+              sops.nixosModules.sops
               ./modules/console
               ./modules/home-assistant
               ./modules/home-manager
               ./modules/networking
+              ./modules/sops
               ./modules/users
               ./hosts/sean-pi
             ];
