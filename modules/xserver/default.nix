@@ -60,11 +60,11 @@
     };
 
     clipmenu.enable = true;
+    libinput.enable = true;
 
     xserver = {
       enable = true;
       enableCtrlAltBackspace = true;
-      libinput.enable = true;
       digimend.enable = true;
       wacom.enable = true;
 

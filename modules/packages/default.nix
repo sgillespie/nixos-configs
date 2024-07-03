@@ -2,12 +2,9 @@
 
 {
   environment.systemPackages =
-    let
-      androidPlatformTools = pkgs.androidenv.androidPkgs_9_0.platform-tools;
-    in
       with pkgs; [
         alsaUtils
-        androidPlatformTools
+        android-tools
         autoconf
         automake
         bashInteractive
