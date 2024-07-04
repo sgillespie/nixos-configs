@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
+  inherit (config.sops) secrets;
   cfg = config.services.home-assistant;
 in
 
@@ -75,7 +76,7 @@ with lib;
           {
             users.zigbee2mqtt = {
               acl = [ "readwrite #" ];
-              hashedPasswordFile = /etc/mosquitto/passwd;
+              hashedPasswordFile = secrets."mosquitto/hashedPassword".path;
             };
           }
         ];
@@ -104,7 +105,7 @@ with lib;
             forceSSL = true;
             enableACME = true;
             acmeRoot = null;
-            basicAuthFile = /etc/nginx/z2m.htpasswd;
+            basicAuthFile = secrets."nginx/zigbee2mqtt/basicAuth".path;
 
             locations."/" = {
               proxyPass = "http://[::1]:8080";
@@ -172,5 +173,32 @@ with lib;
         environmentFile = "/var/lib/secrets/certs.secret";
       };
     };
+
+    sops.secrets =
+      let
+        sopsFile = ../../secrets/home-assistant.yaml;
+      in {
+        "homeAssistant/secrets.yaml" = {
+          inherit sopsFile;
+          owner = "hass";
+          path = "/var/lib/hass/secrets.yaml";
+        };
+
+        "mosquitto/hashedPassword" = {
+          inherit sopsFile;
+          owner = "mosquitto";
+        };
+
+        "nginx/zigbee2mqtt/basicAuth" = {
+          inherit sopsFile;
+          owner = config.services.nginx.user;
+        };
+
+        "zigbee2mqtt/secret.yaml" = {
+          inherit sopsFile;
+          owner = "zigbee2mqtt";
+          path = "/var/lib/zigbee2mqtt/secret.yaml";
+        };
+      };
   };
 }

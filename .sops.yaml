@@ -4,6 +4,12 @@ keys:
   - &server_sean-pi age1mr3ha2mlst72x5x4ggwkvl0hgwptau9627as9gpk2ham5km7hshqta83fm
 
 creation_rules:
+  - path_regex: secrets/home-assistant.yaml$
+    key_groups:
+      - pgp:
+          - *admin_sgillespie
+        age:
+          - *server_sean-pi
   - path_regex: secrets/.*$
     key_groups:
       - pgp:
