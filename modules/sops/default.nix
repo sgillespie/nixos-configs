@@ -22,7 +22,12 @@ with lib; {
     sops = {
       defaultSopsFile = ../../secrets/default.yaml;
       age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-      secrets.secret_key = {};
+
+      secrets = {
+        secret_key = {};
+        "hashedPasswords/agillespie".neededForUsers = true;
+        "hashedPasswords/sgillespie".neededForUsers = true;
+      };
     };
   };
 }
