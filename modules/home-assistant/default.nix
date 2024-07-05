@@ -170,7 +170,7 @@ with lib;
       defaults = {
         email = "sean@misters.net";
         dnsProvider = "dreamhost";
-        environmentFile = "/var/lib/secrets/certs.secret";
+        environmentFile = secrets."letsEncrypt/environment".path;
       };
     };
 
@@ -182,6 +182,11 @@ with lib;
           inherit sopsFile;
           owner = "hass";
           path = "/var/lib/hass/secrets.yaml";
+        };
+
+        "letsEncrypt/environment" = {
+          inherit sopsFile;
+          owner = "acme";
         };
 
         "mosquitto/hashedPassword" = {
