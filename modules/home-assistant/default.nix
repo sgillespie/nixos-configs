@@ -175,8 +175,10 @@ with lib;
           advanced = {
             channel = 20;
             ext_pan_id = [ 195 20 220 117 23 145 33 126 ];
-            network_key = [ 34 209 12 177 145 106 82 85 90 221 6 230 86 32 47 167 ];
             pan_id = 25316;
+
+            # Network encryption key
+            network_key = "!secret.yaml network_key";
           };
         };
       };
