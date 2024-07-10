@@ -66,6 +66,25 @@ with lib;
               delay_time = 120;
             };
           };
+
+          mqtt = {
+            # Hiemann Smart Siren
+            siren = {
+              name = "Siren";
+              state_topic = "zigbee2mqtt/Siren/set";
+              command_topic = "zigbee2mqtt/Siren/set";
+              command_template = ''{{ value }}'';
+              # The alarm state is set via composite "warning", rather than the usual on/off state
+              payload_on = ''{"warning": {"duration": 1800, "level": "very_high", "mode": "emergency", "strobe": false}}'';
+              payload_off = ''{"warning": {"duration": 1, "level": "high", "mode": "stop", "strobe": false}}'';
+              # Pull state from the composite "warning". Since we only use `"mode": "emergency"`,
+              # we assume this means it's on, otherwise we assume it's off
+              state_value_template = ''{{ value_json.warning.mode == "emergency" }}'';
+              state_on = true;
+              state_off = false;
+              retain = false;
+            };
+          };
         };
       };
 
