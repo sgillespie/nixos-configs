@@ -455,11 +455,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1721983598,
-        "narHash": "sha256-Qk7zkgfDA+a10iC9kZLvVbSqU2IOyVrFV98engEDmoI=",
+        "lastModified": 1723560330,
+        "narHash": "sha256-0tMujibISFDXT+szCqe+czSQP8+gxURo6fWuVQJxCNs=",
         "owner": "IntersectMBO",
         "repo": "cardano-db-sync",
-        "rev": "9437154da2499fc6b6a06cfa294ea9b8ce5b5634",
+        "rev": "f8c76d8473e2c90417614120e6eeb249de9cf43f",
         "type": "github"
       },
       "original": {
@@ -1911,11 +1911,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1721996913,
-        "narHash": "sha256-eqbhEBObarS6WsI0J1PVACQ8fXeq9OmSS0+iXBegoOI=",
+        "lastModified": 1723399884,
+        "narHash": "sha256-97wn0ihhGqfMb8WcUgzzkM/TuAxce2Gd20A8oiruju4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bc2b96acda50229bc99925dde5c8e561e90b0b00",
+        "rev": "086f619dd991a4d355c07837448244029fc2d9ab",
         "type": "github"
       },
       "original": {
@@ -3454,11 +3454,11 @@
         "nixpkgs-stable": "nixpkgs-stable_3"
       },
       "locked": {
-        "lastModified": 1721688883,
-        "narHash": "sha256-9jsjsRKtJRqNSTXKj9zuDFRf2PGix30nMx9VKyPgD2U=",
+        "lastModified": 1723501126,
+        "narHash": "sha256-N9IcHgj/p1+2Pvk8P4Zc1bfrMwld5PcosVA0nL6IGdE=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "aff2f88277dabe695de4773682842c34a0b7fd54",
+        "rev": "be0eec2d27563590194a9206f551a6f73d52fa34",
         "type": "github"
       },
       "original": {
