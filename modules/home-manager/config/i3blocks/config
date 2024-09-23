@@ -51,12 +51,6 @@ label=MEM
 interval=10
 align=center
 
-[memory]
-label=SWP
-instance=swap
-interval=10
-align=center
-
 # Disk usage
 #
 # The directory defaults to $HOME if the instance is not specified.
@@ -87,7 +81,11 @@ separator_block_width=10
 [temperature]
 label=
 interval=5
-SENSOR_CHIP=k10temp-pci-00c3
+separator=true
+separator_block_width=10
+SENSOR_CHIP=system76_acpi-acpi-0
+T_WARN=70
+T_CRIT=90
 
 # Network interface monitoring
 #
