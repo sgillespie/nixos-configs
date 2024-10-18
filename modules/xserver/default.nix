@@ -26,7 +26,7 @@
     xdotool
 
     dracula-theme
-    gnome3.adwaita-icon-theme
+    adwaita-icon-theme
   ];
 
   fonts = {

@@ -1,24 +1,35 @@
 { pkgs, lib, config, ... }:
 
 let
-  cfg = config.hardware.nvidiaUnfree;
+  cfg = config.hardware.nvidia;
 in
 
 with lib;
 
 {
-  options.hardware.nvidiaUnfree.enable = mkOption {
+  options.hardware.nvidia.enable = mkOption {
     type = types.bool;
     default = false;
-    description = "Enable Nvidia proprietary support";
+    description = "Enable Nvidia support";
   };
 
   config = mkIf cfg.enable {
-    services.xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.videoDrivers = ["nvidia"];
 
     hardware = {
       graphics.enable = true;
-      nvidia.modesetting.enable = true;
+
+      nvidia = {
+        modesetting.enable = true;
+        nvidiaSettings = true;
+        open = true;
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+        powerManagement = {
+          enable = false;
+          finegrained = false;
+        };
+      };
     };
 
     environment.systemPackages = with pkgs; [ vulkan-tools vulkan-validation-layers ];

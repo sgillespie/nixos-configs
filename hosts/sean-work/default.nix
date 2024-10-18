@@ -24,6 +24,16 @@
   networking.hostName = "sean-work";
 
   nixpkgs.config = pkgs.config;
+  nix.settings = {
+    system-features = [
+      "big-parallel"
+      "kvm"
+      "nixos-test"
+      "recursive-nix"
+    ];
+
+    extra-experimental-features = [ "recursive-nix" ];
+  };
 
   hardware = {
     system76 = {
@@ -31,8 +41,14 @@
       power-daemon.enable = true;
     };
 
-    nvidiaUnfree.enable = true;
+    nvidia.enable = true;
     bluetooth.enable = true;
+  };
+
+  specialisation."mobile".configuration = {
+    system.nixos.tags = [ "mobile" ];
+    hardware.nvidia.enable = pkgs.lib.mkForce false;
+    services.cardano-node.enable = pkgs.lib.mkForce false;
   };
 
   environment.systemPackages = [pkgs.acpi];

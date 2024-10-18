@@ -6,19 +6,16 @@ in
 
 with lib; {
   config = mkIf cfg.enable {
-    hardware = {
-      enableAllFirmware = true;
+    security.rtkit.enable = true;
 
-      bluetooth.settings = {
-        General = {
-          Enable = "Source,Sink,Media,Socket";
-        };
-      };
-
-      pulseaudio = {
+    services.pipewire = {
+      enable = true;
+      alsa = {
         enable = true;
-        package = pkgs.pulseaudioFull;
+        support32Bit = true;
       };
+
+      pulse.enable = true;
     };
   };
 }

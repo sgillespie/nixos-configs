@@ -48,11 +48,6 @@
   '';
 
   programs = {
-    java = {
-      enable = true;
-      package = pkgs.adoptopenjdk-bin;
-    };
-
     browserpass.enable = true;
     chromium.enable = true;
     tmux.enable = true;
