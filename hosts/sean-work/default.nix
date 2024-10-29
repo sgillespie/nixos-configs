@@ -24,16 +24,6 @@
   networking.hostName = "sean-work";
 
   nixpkgs.config = pkgs.config;
-  nix.settings = {
-    system-features = [
-      "big-parallel"
-      "kvm"
-      "nixos-test"
-      "recursive-nix"
-    ];
-
-    extra-experimental-features = [ "recursive-nix" ];
-  };
 
   hardware = {
     system76 = {
@@ -59,6 +49,7 @@
     ntp.enable = true;
     postgresql.enable = true;
     cardano-node.enable = true;
+    hydra.enable = false;
   };
 
   sops.enable = true;

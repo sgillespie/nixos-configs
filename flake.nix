@@ -49,6 +49,7 @@
         ./modules/cardano-node
         ./modules/console
         ./modules/home-manager
+        ./modules/hydra
         ./modules/networking
         ./modules/users
         ./modules/yubikey
