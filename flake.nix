@@ -45,7 +45,7 @@
         cardanoDbSync.nixosModules.cardano-db-sync
         homeManager.nixosModules.home-manager
         sops.nixosModules.sops
-        ./modules/bluetooth
+        ./modules/audio
         ./modules/cardano-node
         ./modules/console
         ./modules/home-manager

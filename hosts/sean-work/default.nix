@@ -32,7 +32,7 @@
     };
 
     nvidia.enable = true;
-    bluetooth.enable = true;
+    audio.enable = true;
   };
 
   specialisation."mobile".configuration = {

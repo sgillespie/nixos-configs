@@ -29,8 +29,8 @@
   nixpkgs.config = pkgs.config;
 
   hardware = {
-    nvidiaUnfree.enable = true;
-    bluetooth.enable = true;
+    nvidia.enable = true;
+    audio.enable = true;
   };
 
   services = {
@@ -38,6 +38,7 @@
     ntp.enable = true;
     postgresql.enable = true;
     cardano-node.enable = true;
+    hydra.enable = false;
   };
 
   programs.wayland.enable = false;
