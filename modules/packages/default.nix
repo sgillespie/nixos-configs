@@ -3,7 +3,6 @@
 {
   environment.systemPackages =
       with pkgs; [
-        alsaUtils
         android-tools
         autoconf
         automake

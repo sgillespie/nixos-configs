@@ -17,7 +17,6 @@
     passff-host
     pavucontrol
     rofi
-    rxvt_unicode
     scrot
     slack
     spotify
