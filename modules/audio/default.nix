@@ -12,18 +12,24 @@ with lib; {
   };
 
   config = mkIf cfg.enable {
-    security.rtkit.enable = true;
+    hardware = {
+      enableAllFirmware = true;
 
-    hardware.bluetooth.enable = true;
-
-    services.pipewire = {
-      enable = true;
-      alsa = {
+      bluetooth = {
         enable = true;
-        support32Bit = true;
+        settings = {
+          General = {
+            Enable = "Source,Sink,Media,Socket";
+          };
+        };
       };
 
-      pulse.enable = true;
+      pulseaudio = {
+        enable = true;
+        package = pkgs.pulseaudioFull;
+      };
     };
+
+    services.pipewire.enable = false;
   };
 }
