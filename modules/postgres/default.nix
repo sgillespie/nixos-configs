@@ -9,11 +9,16 @@ with lib;
 {
   config = mkIf cfg.enable {
     services.postgresql = {
-      ensureDatabases = [ "sgillespie" ];
+      ensureDatabases = [ "sgillespie" "hydra" ];
 
       ensureUsers = [
         {
           name = "sgillespie";
+          ensureClauses.superuser = true;
+        }
+
+        {
+          name = "hydra";
           ensureClauses.superuser = true;
         }
       ];

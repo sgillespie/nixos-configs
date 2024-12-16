@@ -18,6 +18,7 @@ in {
         isNormalUser = true;
         extraGroups = [
           "docker"
+          "hydra"
           "wheel"
           "networkmanager"
           "vboxusers"
@@ -31,6 +32,7 @@ in {
         isNormalUser = true;
         extraGroups = [
           "docker"
+          "hydra"
           "wheel"
           "networkmanager"
           "vboxusers"
