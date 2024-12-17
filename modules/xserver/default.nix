@@ -37,9 +37,8 @@
       roboto-mono
       source-code-pro
       corefonts
-      (nerdfonts.override {
-        fonts = [ "FiraCode" "DroidSansMono" ];
-      })
+      nerd-fonts.fira-code
+      nerd-fonts.droid-sans-mono
     ];
   };
 
