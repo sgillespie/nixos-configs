@@ -6,22 +6,11 @@ let
   };
 
   xkb_patched = xkb_custom.overrideAttrs (_: {
-    patches = [
-      (builtins.toFile "pc.patch" ''
-        diff --git i/symbols/pc w/symbols/pc
-        index 8d224c34..bca1242f 100644
-        --- i/symbols/pc
-        +++ w/symbols/pc
-        @@ -50,7 +50,7 @@ xkb_symbols "pc105" {
-             modifier_map Mod4  { <SUPR> };
-
-             key <HYPR> {[  NoSymbol, Hyper_L  ]};
-        -    modifier_map Mod3  { <HYPR> };
-        +    modifier_map Mod4  { <HYPR> };
-
-             include "srvr_ctrl(fkey2vt)"
-      '')
-    ];
+    src = pkgs.fetchgit {
+      url = "https://gitlab.freedesktop.org/wismill/xkeyboard-config.git";
+      rev = "6b662798639ae04b20a7ced50b89918abc9e5b00";
+      sha256 = "sha256-KlLG+QEHtxNIDh/ooZyD4P9UZt54ydawUvWH7QrwRsM=";
+    };
   });
 in {
   environment.sessionVariables = {
@@ -33,6 +22,7 @@ in {
   services.xserver.xkb = {
     layout = "3l-emacs";
     dir = lib.mkForce "${xkb_patched}/etc/X11/xkb";
+    options = "hyper:mod4,terminate:ctrl_alt_bksp";
 
     extraLayouts."3l-emacs" = {
       description = "3l optimized for emacs";
