@@ -4,6 +4,7 @@
   imports = [
     ./nvidia.nix
     ./wayland.nix
+    ./xkb.nix
   ];
 
   environment.systemPackages = with pkgs; [
@@ -66,16 +67,6 @@
       enableCtrlAltBackspace = true;
       digimend.enable = true;
       wacom.enable = true;
-
-      xkb = {
-        layout = "3l-emacs";
-
-        extraLayouts."3l-emacs" = {
-          description = "3l optimized for emacs";
-          languages = ["eng"];
-          symbolsFile = ./3l-emacs.xkb;
-        };
-      };
 
       displayManager = {
         startx.enable = true;
