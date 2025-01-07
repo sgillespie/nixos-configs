@@ -23,13 +23,15 @@ with lib; {
           };
         };
       };
+    };
+
+    services = {
+      pipewire.enable = false;
 
       pulseaudio = {
         enable = true;
         package = pkgs.pulseaudioFull;
       };
     };
-
-    services.pipewire.enable = false;
   };
 }
