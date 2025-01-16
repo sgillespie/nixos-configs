@@ -22,7 +22,7 @@ in {
   services.xserver.xkb = {
     layout = "3l-emacs";
     dir = lib.mkForce "${xkb_patched}/etc/X11/xkb";
-    options = "hyper:mod4,terminate:ctrl_alt_bksp";
+    options = "terminate:ctrl_alt_bksp";
 
     extraLayouts."3l-emacs" = {
       description = "3l optimized for emacs";
