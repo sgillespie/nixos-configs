@@ -24,7 +24,6 @@
     tdesktop
     xclip
     xdotool
-
     dracula-theme
     adwaita-icon-theme
   ];
@@ -64,8 +63,6 @@
     xserver = {
       enable = true;
       enableCtrlAltBackspace = true;
-      digimend.enable = true;
-      wacom.enable = true;
 
       displayManager = {
         startx.enable = true;

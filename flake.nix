@@ -1,8 +1,8 @@
 {
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
-    cardanoNode.url = github:input-output-hk/cardano-node?ref=10.1.1-pre;
-    cardanoDbSync.url = github:IntersectMBO/cardano-db-sync;
+    cardanoNode.url = github:input-output-hk/cardano-node/10.1.4;
+    cardanoDbSync.url = github:sgillespie/cardano-db-sync?rev=43b2f07869f01f975260fedf92dc1fa34727caaf;
     feedback.url = github:NorfairKing/feedback;
 
     homeManager = {
@@ -41,6 +41,7 @@
       };
 
       modules = [
+        ./modules/nixpkgs
         cardanoNode.nixosModules.cardano-node
         cardanoDbSync.nixosModules.cardano-db-sync
         homeManager.nixosModules.home-manager
@@ -62,7 +63,7 @@
       ];
 
       specialArgs = {
-        inherit attrs pkgs;
+        inherit attrs;
       };
     in
       {
@@ -81,19 +82,7 @@
             system = "aarch64-linux";
 
             modules = [
-              {
-                nixpkgs.overlays = [
-                  (import ./overlays {
-                    feedback = attrs.feedback.packages.${system}.default;
-                    gibberish = attrs.gibberish.packages.${system}.default;
-                  })
-                ];
-                nixpkgs.config = {
-                  allowUnfree = true;
-                  allowUnsupportedSystem = true;
-                };
-              }
-
+              ./modules/nixpkgs
               homeManager.nixosModules.home-manager
               sops.nixosModules.sops
               ./modules/console

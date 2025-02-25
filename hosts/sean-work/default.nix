@@ -23,8 +23,6 @@
 
   networking.hostName = "sean-work";
 
-  nixpkgs.config = pkgs.config;
-
   hardware = {
     system76 = {
       enableAll = true;

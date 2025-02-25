@@ -25,7 +25,7 @@ with lib;
 
       dataDir = "/blockchain/postgresql/${config.services.postgresql.package.psqlSchema}";
 
-      package = pkgs.postgresql_15;
+      package = pkgs.postgresql_16;
     };
 
     environment.systemPackages = with pkgs; [

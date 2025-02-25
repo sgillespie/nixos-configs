@@ -26,8 +26,6 @@
     networkmanager.enable = lib.mkForce false;
   };
 
-  nixpkgs.config = pkgs.config;
-
   hardware = {
     nvidia.enable = true;
     audio.enable = true;
