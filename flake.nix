@@ -46,6 +46,7 @@
         cardanoDbSync.nixosModules.cardano-db-sync
         homeManager.nixosModules.home-manager
         sops.nixosModules.sops
+        ./modules/attic
         ./modules/audio
         ./modules/cardano-node
         ./modules/console
