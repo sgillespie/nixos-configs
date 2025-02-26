@@ -40,7 +40,7 @@ with lib;
     };
     users.groups.atticd = {};
 
-    environment.systemPackages = [ pkgs.attic-client ];
+    environment.systemPackages = with pkgs; [ attic-client attic-server ];
 
     sops.secrets = {
       "attic/environment" = {
