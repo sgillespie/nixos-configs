@@ -192,6 +192,12 @@
   :ensure t
   :mode ("\\.rest$" . restclient-mode))
 
+(use-package rust-mode
+  :ensure t
+  :hook ((rust-mode . eglot-ensure))
+  :custom
+  (rust-format-on-save t))
+
 (use-package yaml-mode
   :ensure t)
 

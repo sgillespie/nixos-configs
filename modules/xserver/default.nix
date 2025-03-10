@@ -15,6 +15,7 @@
     evince
     feh
     kitty
+    neovide
     passff-host
     pavucontrol
     rofi
@@ -49,6 +50,8 @@
       # TODO[sgillespie]: Reenable this once this is fixed in nixpkgs
       # nativeMessagingHosts.packages = [pkgs.browserpass];
     };
+
+    neovim.enable = true;
   };
 
   services = {
