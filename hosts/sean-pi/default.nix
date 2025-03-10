@@ -6,10 +6,10 @@
       ./hardware-configuration.nix
     ];
 
-  boot = {
-    loader.grub.enable = false;
-    # Enables the generation of /boot/extlinux/extlinux.conf
-    loader.generic-extlinux-compatible.enable = true;
+  boot.loader = {
+    grub.enable = false;
+    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
   };
 
   networking = {
