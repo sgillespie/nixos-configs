@@ -8,6 +8,7 @@
 
   boot = {
     # kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
 
     loader = {
       grub = {
@@ -42,6 +43,7 @@
   environment.systemPackages = [pkgs.acpi];
 
   services = {
+    atticd.enable = true;
     logind.lidSwitchExternalPower = "ignore";
     yubikey.enable = true;
     ntp.enable = true;

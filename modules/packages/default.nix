@@ -8,13 +8,13 @@
         automake
         bashInteractive
         binutils
+        colmena
         cryptsetup
         curl
         docker-compose
         elinks
         elocrypt
         gcc
-        gibberish
         git-lfs
         gitAndTools.gitFull
         gnumake
@@ -38,6 +38,8 @@
         yubikey-personalization
         zip
         zsh
+      ] ++ pkgs.lib.optionals (pkgs.system == "x86_64-linux") [
+        gibberish
       ];
 
   environment.shellInit = ''

@@ -29,13 +29,14 @@ in {
       agda
       cabal-install
       cachix
-      feedback
       haskell-language-server
       haskell.compiler.ghc96
       haskellPackages.fourmolu
       hlint
       nix-direnv
       stack
+    ] ++ pkgs.lib.optionals (pkgs.system == "x86_64-linux") [
+      feedback
     ];
   };
 }

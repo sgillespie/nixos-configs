@@ -50,6 +50,7 @@
         ./modules/audio
         ./modules/cardano-node
         ./modules/console
+        ./modules/home-assistant
         ./modules/home-manager
         ./modules/hydra
         ./modules/networking
@@ -80,23 +81,28 @@
           };
 
           sean-pi = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
             system = "aarch64-linux";
-
-            modules = [
-              ./modules/nixpkgs
-              homeManager.nixosModules.home-manager
-              sops.nixosModules.sops
-              ./modules/console
-              ./modules/home-assistant
-              ./modules/home-manager
-              ./modules/networking
-              ./modules/sops
-              ./modules/users
-              ./hosts/sean-pi
-            ];
+            modules = modules ++ [./hosts/sean-pi];
           };
         };
 
         legacyPackages = pkgs;
+
+        colmena = {
+          meta = {
+            inherit specialArgs;
+            nixpkgs = pkgs;
+          };
+
+          sean-pi = { pkgs, ...}: {
+            deployment = {
+              targetHost = "pi.local";
+            };
+
+            nixpkgs.system = self.nixosConfigurations.sean-pi._module.args.system;
+            imports = self.nixosConfigurations.sean-pi._module.args.modules;
+          };
+        };
       };
 }
