@@ -50,11 +50,16 @@
     postgresql.enable = true;
     cardano-node.enable = true;
     hydra.enable = false;
+    virtualisation.enable = true;
+    xserver.enable = true;
   };
 
   sops.enable = true;
 
-  programs.wayland.enable = false;
+  programs = { 
+    haskell.enable = true;
+    wayland.enable = false;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

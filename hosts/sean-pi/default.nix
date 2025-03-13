@@ -32,7 +32,27 @@
     zip
   ];
 
-  services.home-assistant.enable = true;
+  hardware = {
+    nvidia.enable = false;
+    audio.enable = false;
+  };
+
+  programs = {
+    haskell.enable = false;
+  };
+
+  services = {
+    atticd.enable = false;
+    cardano-node.enable = false;
+    home-assistant.enable = true;
+    hydra.enable = false;
+    ntp.enable = true;
+    postgresql.enable = false;
+    virtualisation.enable = false;
+    xserver.enable = false;
+    yubikey.enable = false;
+  };
+
   sops.enable = true;
 
   # Open ports in the firewall.

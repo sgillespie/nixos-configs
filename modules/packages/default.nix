@@ -3,7 +3,6 @@
 {
   environment.systemPackages =
       with pkgs; [
-        android-tools
         autoconf
         automake
         bashInteractive
@@ -11,7 +10,6 @@
         colmena
         cryptsetup
         curl
-        docker-compose
         elinks
         elocrypt
         gcc
@@ -22,20 +20,18 @@
         iamb
         irssi
         jq
-        mutt-with-sidebar
         nodejs_latest
         openssh
         openssl
+        neovim
+        neovim-remote
         patchelf
         parted
         pass
         python3
         unzip
         usbutils
-        vimHugeX
-        vimPlugins.Syntastic
         wget
-        yubikey-personalization
         zip
         zsh
       ] ++ pkgs.lib.optionals (pkgs.system == "x86_64-linux") [
@@ -49,8 +45,6 @@
   '';
 
   programs = {
-    browserpass.enable = true;
-    chromium.enable = true;
     tmux.enable = true;
     zsh.enable = true;
     zsh.promptInit = "";

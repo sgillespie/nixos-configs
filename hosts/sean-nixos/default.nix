@@ -37,9 +37,14 @@
     postgresql.enable = true;
     cardano-node.enable = true;
     hydra.enable = false;
+    virtualisation.enable = true;
+    xserver.enable = true;
   };
 
-  programs.wayland.enable = false;
+  programs = {
+    haskell.enable = true;
+    wayland.enable = false;
+  };
   sops.enable = true;
 
   # This value determines the NixOS release from which the default

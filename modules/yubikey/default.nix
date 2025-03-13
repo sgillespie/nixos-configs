@@ -18,7 +18,7 @@ with lib;
     environment.systemPackages = with pkgs; [
       pinentry
       pinentry-gtk2
-
+      yubikey-personalization
       yubioath-flutter
     ];
 

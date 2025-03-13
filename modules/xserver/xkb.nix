@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let
+  cfg = config.services.xserver;
+
   xkb_custom = pkgs.xorg.xkeyboardconfig_custom {
     layouts = config.services.xserver.xkb.extraLayouts;
   };
@@ -12,22 +14,28 @@ let
       sha256 = "sha256-KlLG+QEHtxNIDh/ooZyD4P9UZt54ydawUvWH7QrwRsM=";
     };
   });
-in {
-  environment.sessionVariables = {
-    # runtime override supported by multiple libraries e. g. libxkbcommon
-    # https://xkbcommon.org/doc/current/group__include-path.html
-    XKB_CONFIG_ROOT = config.services.xserver.xkb.dir;
-  };
+in 
 
-  services.xserver.xkb = {
-    layout = "3l-emacs";
-    dir = lib.mkForce "${xkb_patched}/etc/X11/xkb";
-    options = "terminate:ctrl_alt_bksp";
+with lib;
 
-    extraLayouts."3l-emacs" = {
-      description = "3l optimized for emacs";
-      languages = ["eng"];
-      symbolsFile = ./3l-emacs.xkb;
+{
+  config = mkIf cfg.enable {
+    environment.sessionVariables = {
+      # runtime override supported by multiple libraries e. g. libxkbcommon
+      # https://xkbcommon.org/doc/current/group__include-path.html
+      XKB_CONFIG_ROOT = config.services.xserver.xkb.dir;
+    };
+
+    services.xserver.xkb = {
+      layout = "3l-emacs";
+      dir = mkForce "${xkb_patched}/etc/X11/xkb";
+      options = "terminate:ctrl_alt_bksp";
+
+      extraLayouts."3l-emacs" = {
+        description = "3l optimized for emacs";
+        languages = ["eng"];
+        symbolsFile = ./3l-emacs.xkb;
+      };
     };
   };
 }

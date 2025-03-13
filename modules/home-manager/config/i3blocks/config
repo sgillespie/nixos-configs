@@ -81,8 +81,6 @@ separator_block_width=10
 [temperature]
 label=
 interval=5
-separator=true
-separator_block_width=10
 SENSOR_CHIP=system76_acpi-acpi-0
 T_WARN=70
 T_CRIT=90
@@ -95,6 +93,11 @@ T_CRIT=90
 # color=#00FF00
 label=eth
 interval=10
+
+# Battery charge
+[battery2]
+markup=pango
+interval=30
 
 # Date Time
 #
