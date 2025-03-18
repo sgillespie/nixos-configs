@@ -24,7 +24,7 @@ if [[ ! -n "${EC+DEFINED}" ]]; then
 fi
 
 alias ec="$EC -n"
-export EDITOR="emacsclient"
+export EDITOR='nvr --nostart --remote-tab-wait +"set bufhidden=delete"'
 
 # make sure color output is set
 export CLICOLOR=
