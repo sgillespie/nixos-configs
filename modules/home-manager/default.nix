@@ -30,6 +30,7 @@ in {
         "i3blocks".source = ./config/i3blocks;
         "iamb".source = ./config/iamb;
         "kitty".source = ./config/kitty;
+        "nvim".source = ./config/nvim;
         "tmux".source = ./config/tmux;
         "zsh".source = ./config/zsh;
         "i3blocks-contrib".source = pkgs.i3blocks-contrib;
