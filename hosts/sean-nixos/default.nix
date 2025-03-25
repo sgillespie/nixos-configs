@@ -32,6 +32,7 @@
   };
 
   services = {
+    minecraft-bedrock-server.enable = false;
     yubikey.enable = true;
     ntp.enable = true;
     postgresql.enable = true;

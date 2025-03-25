@@ -46,6 +46,7 @@
     atticd.enable = true;
     logind.lidSwitchExternalPower = "ignore";
     yubikey.enable = true;
+    minecraft-bedrock-server.enable = false;
     ntp.enable = true;
     postgresql.enable = true;
     cardano-node.enable = true;

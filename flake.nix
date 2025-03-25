@@ -53,6 +53,7 @@
         ./modules/home-assistant
         ./modules/home-manager
         ./modules/hydra
+        ./modules/minecraft
         ./modules/networking
         ./modules/users
         ./modules/yubikey
