@@ -2,6 +2,7 @@ return {
   "neovim/nvim-lspconfig",
   priority = 1000,
   lazy = false,
+
   config = function(_, opts)
     require('lspconfig')['hls'].setup{
       filetypes = { 'haskell', 'lhaskell' },
@@ -14,4 +15,10 @@ return {
       },
     }
   end,
+
+  keys = {
+    { "grn", function() vim.lsp.buf.rename() end, desc = "LSP Rename" },
+    { "gra", function() vim.lsp.buf.code_action() end, desc = "LSP Code Actions" },
+    { "gq", function() vim.lsp.buf.format() end, desc = "LSP Format" },
+  },
 }
