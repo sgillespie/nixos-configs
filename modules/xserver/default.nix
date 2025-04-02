@@ -15,7 +15,7 @@ with lib;
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      chromium
+      brave
       discord
       dunst
       element-desktop
@@ -51,6 +51,8 @@ with lib;
 
     programs = {
       browserpass.enable = true;
+
+      chromium.enable = true;
 
       firefox = {
         enable = true;
