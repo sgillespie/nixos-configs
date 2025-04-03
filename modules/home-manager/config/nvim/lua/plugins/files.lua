@@ -7,6 +7,6 @@ return {
   opts = {},
 
   keys = {
-    { "<leader>fo", function() require("oil").open_float() end, desc = "Open Oil" },
+    { "<leader>e", function() require("oil").open_float() end, desc = "Open Oil" },
   },
 }
