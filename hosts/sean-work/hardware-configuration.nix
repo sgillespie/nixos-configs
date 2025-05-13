@@ -15,7 +15,7 @@
     yubikeySupport = true;
     devices."encrypted-home" = {
 
-      device = "/dev/disk/by-uuid/1a432e2f-0931-40c4-9d6c-46b3ff492e0b";
+      device = "/dev/disk/by-uuid/db76e4f2-0791-4e5e-a95f-54c508cd46dd";
 
       yubikey = {
         slot = 2;
@@ -44,16 +44,16 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/8E0F-3269";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/82232ed8-02f9-4960-8f97-2d282b8f23aa";
-      fsType = "btrfs";
+    { device = "/dev/disk/by-uuid/db545989-1345-4ffd-b537-7eb32b09a282";                   
+      fsType = "ext4";
     };
 
-
   fileSystems."/blockchain" =
-    { device = "/dev/disk/by-uuid/bd74cd32-d7a6-4efa-bfc1-151a55e095cb";
+    { device = "/dev/disk/by-label/blockchain";
       fsType = "btrfs";
     };
 
@@ -62,7 +62,9 @@
       options = [ "bind" ];
     };
 
-  swapDevices = [ ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/9b7c2229-9f84-46d0-86b5-47b6b462a4dc"; }
+    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
