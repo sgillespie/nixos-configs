@@ -54,7 +54,7 @@
 
   fileSystems."/blockchain" =
     { device = "/dev/disk/by-label/blockchain";
-      fsType = "btrfs";
+      fsType = "ext4";
     };
 
   fileSystems."/var/lib/cardano-node" =
