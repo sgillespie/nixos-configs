@@ -1,0 +1,7 @@
+if [[ -f /sys/devices/system/cpu/intel_pstate/no_turbo ]]; then
+  sudo bash -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo'
+fi
+
+autorandr --detected
+
+exec i3

@@ -20,6 +20,7 @@ in {
         ".bashrc".source = ./config/bash/bashrc;
         ".zshrc".source = ./config/zsh/zshrc;
         ".local/libexec/i3blocks".source = "${pkgs.i3blocks-contrib}/libexec/i3blocks";
+        ".xinitrc".source = ./config/startx/xinitrc;
       };
 
       xdg.configFile = {
@@ -34,6 +35,7 @@ in {
         "tmux".source = ./config/tmux;
         "zsh".source = ./config/zsh;
         "i3blocks-contrib".source = pkgs.i3blocks-contrib;
+        "Yubico".source = ./config/Yubico;
       };
     };
   };
