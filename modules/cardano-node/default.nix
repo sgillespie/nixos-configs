@@ -16,6 +16,7 @@ with lib; {
     environment.systemPackages = [
       cardanoNode.legacyPackages."${currentSystem}".cardano-cli
       cardanoNode.legacyPackages."${currentSystem}".cardano-node
+      pkgs.cardano-environments
     ];
 
     services = {

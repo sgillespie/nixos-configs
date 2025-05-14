@@ -11,6 +11,8 @@ in
 
   elocrypt = haskell.lib.dontCheck haskellPackages.elocrypt;
 
+  cardano-environments = import ./cardano-environments self;
+
   i3blocks-contrib = with self.lib; self.stdenv.mkDerivation {
      pname = "i3blocks-contrib";
      version = "2.0.0";
