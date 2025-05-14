@@ -1,1 +1,1 @@
-vim.o.guifont = "0xProto:h11"
+vim.o.guifont = "0xProto Nerd Font:h12"

@@ -44,6 +44,7 @@ with lib;
         roboto-mono
         source-code-pro
         corefonts
+        nerd-fonts._0xproto
         nerd-fonts.fira-code
         nerd-fonts.droid-sans-mono
       ];
