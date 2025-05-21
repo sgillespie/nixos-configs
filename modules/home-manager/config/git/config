@@ -11,14 +11,14 @@
 [commit]
 	gpgSign = true
 [core]
-        hooksPath = /home/sgillespie/.config/git/hooks
+	hooksPath = /home/sgillespie/.config/git/hooks
 [diff]
 	mnemonicprefix = true
 [init]
 	defaultBranch = main
 [log]
 	decorate = short
-	showSignature = true
+	showSignature = false
 [merge]
 	defaultToUpstream = true
 [push]
@@ -32,4 +32,8 @@
 [includeIf "hasconfig:remote.*.url:git@github.com:input-output-hk/**"]
         path = /home/sgillespie/.config/git/iohk.inc
 [includeIf "hasconfig:remote.*.url:git@github.com:IntersectMBO/**"]
+        path = /home/sgillespie/.config/git/iohk.inc
+[includeIf "hasconfig:remote.*.url:git@github.com:midnight-ntwrk/**"]
+        path = /home/sgillespie/.config/git/iohk.inc
+[includeIf "hasconfig:remote.*.url:git@github.com:midnightntwrk/**"]
         path = /home/sgillespie/.config/git/iohk.inc
