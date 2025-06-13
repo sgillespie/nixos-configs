@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, attrs, ... }:
 
 {
   imports =
@@ -30,7 +30,7 @@
       power-daemon.enable = true;
     };
 
-    nvidia.enable = true;
+    nvidia.enable = pkgs.lib.mkDefault false;
     audio.enable = true;
   };
 
@@ -38,6 +38,11 @@
     system.nixos.tags = [ "mobile" ];
     hardware.nvidia.enable = pkgs.lib.mkForce false;
     services.cardano-node.enable = pkgs.lib.mkForce false;
+    environment.systemPackages = [
+      attrs.cardanoNode.legacyPackages.x86_64-linux.cardano-cli
+      attrs.cardanoNode.legacyPackages.x86_64-linux.cardano-node
+      pkgs.cardano-environments
+    ];
   };
 
   environment.systemPackages = [pkgs.acpi];
