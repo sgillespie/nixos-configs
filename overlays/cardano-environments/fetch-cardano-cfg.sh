@@ -67,7 +67,8 @@ CFG_FILES=(\
   config-bp.json \
   db-sync-config.json \
   submit-api-config.json \
-  topology-genesis-mode.json \
+  # https://github.com/IntersectMBO/ouroboros-consensus/issues/1490
+  # topology-genesis-mode.json \
   topology.json \
   peer-snapshot.json \
   byron-genesis.json \
@@ -81,6 +82,10 @@ for env in "${ENVS[@]}"; do
   mkdir -p "$env"
 
   for file in "${CFG_FILES[@]}"; do
-    wget --directory-prefix "$env" "https://book.world.dev.cardano.org/environments/${env}/${file}"
+    # Recursive retriever will overwrite older versions of files
+    wget \
+      --recursive \
+      --directory-prefix "$env" \
+      "https://book.world.dev.cardano.org/environments/${env}/${file}"
   done
 done
