@@ -217,6 +217,10 @@ with lib;
           "mqtt.mistersg.net"
           "dnsmasq.local"
         ];
+
+        "192.168.0.109" = [
+          "retropie.local"
+        ];
       };
     };
 
