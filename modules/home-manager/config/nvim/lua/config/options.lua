@@ -1,7 +1,9 @@
 vim.opt.autowrite = true -- Enable auto write
+vim.opt.breakindent = true -- Preserve indents when automatically wrapping
 vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.formatoptions = 'tcroq'
 vim.opt.ignorecase = true -- Ignore case
 vim.opt.inccommand = "nosplit" -- preview incremental substitute
 vim.opt.laststatus = 3 -- global statusline
@@ -21,6 +23,7 @@ vim.opt.splitright = true -- Put new windows right of current
 vim.opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
 vim.opt.tabstop = 2 -- Number of spaces tabs count for
 vim.opt.termguicolors = true -- True color support
+vim.opt.textwidth = 90 -- Automatically wrap after 90 columns
 vim.opt.timeoutlen = vim.g.vscode and 1000 or 300 -- Lower than default (1000) to quickly trigger which-key
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
@@ -28,3 +31,4 @@ vim.opt.updatetime = 200 -- Save swap file and trigger CursorHold
 vim.opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
 vim.opt.wrap = false -- Disable line wrap
+
