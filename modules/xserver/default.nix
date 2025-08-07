@@ -73,6 +73,7 @@ with lib;
       clipmenu.enable = true;
       libinput.enable = true;
 
+
       xserver = {
         enableCtrlAltBackspace = true;
 
@@ -82,10 +83,6 @@ with lib;
           sessionCommands = ''
             autorandr --detected --change --default default
           '';
-        };
-
-        desktopManager = {
-          gnome.enable = false;
         };
 
         windowManager.i3 = {
@@ -101,6 +98,8 @@ with lib;
           ];
         };
       };
+
+      desktopManager.gnome.enable = false;
     };
   };
 }
