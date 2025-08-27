@@ -42,6 +42,7 @@
   };
 
   services = {
+    ai.enable = false;
     atticd.enable = false;
     cardano-node.enable = false;
     home-assistant.enable = true;

@@ -32,6 +32,7 @@
   };
 
   services = {
+    ai.enable = true;
     minecraft-bedrock-server.enable = false;
     yubikey.enable = true;
     ntp.enable = true;

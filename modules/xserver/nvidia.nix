@@ -22,7 +22,7 @@ with lib;
       nvidia = {
         modesetting.enable = true;
         nvidiaSettings = true;
-        open = true;
+        open = false;
         package = config.boot.kernelPackages.nvidiaPackages.stable;
 
         powerManagement = {
@@ -32,6 +32,11 @@ with lib;
       };
     };
 
-    environment.systemPackages = with pkgs; [ vulkan-tools vulkan-validation-layers ];
+    environment.systemPackages = with pkgs; [
+      clinfo
+      cudatoolkit
+      vulkan-tools
+      vulkan-validation-layers
+    ];
   };
 }

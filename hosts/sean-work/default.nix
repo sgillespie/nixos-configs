@@ -30,7 +30,7 @@
       power-daemon.enable = true;
     };
 
-    nvidia.enable = pkgs.lib.mkDefault false;
+    nvidia.enable = pkgs.lib.mkDefault true;
     audio.enable = true;
   };
 
@@ -48,6 +48,7 @@
   environment.systemPackages = [pkgs.acpi];
 
   services = {
+    ai.enable = true;
     atticd.enable = true;
     logind.lidSwitchExternalPower = "ignore";
     yubikey.enable = true;
