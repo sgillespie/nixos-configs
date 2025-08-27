@@ -25,10 +25,4 @@ return {
       { "gq", function() vim.lsp.buf.format() end, desc = "LSP Format" },
     },
   },
-
-  {
-    "folke/trouble.nvim",
-    cmd = "Trouble",
-    opts = {},
-  },
 }
