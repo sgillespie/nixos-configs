@@ -8,6 +8,7 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
 
     loader = {
       grub = {
