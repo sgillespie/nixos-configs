@@ -28,7 +28,7 @@
 [user]
 	email = sean@mistersg.net
 	name = Sean D Gillespie
-        signingkey = 163ED0907B84F3E9
+	signingkey = 163ED0907B84F3E9
 [includeIf "hasconfig:remote.*.url:git@github.com:input-output-hk/**"]
         path = /home/sgillespie/.config/git/iohk.inc
 [includeIf "hasconfig:remote.*.url:git@github.com:IntersectMBO/**"]
@@ -36,4 +36,6 @@
 [includeIf "hasconfig:remote.*.url:git@github.com:midnight-ntwrk/**"]
         path = /home/sgillespie/.config/git/iohk.inc
 [includeIf "hasconfig:remote.*.url:git@github.com:midnightntwrk/**"]
+        path = /home/sgillespie/.config/git/iohk.inc
+[includeIf "hasconfig:remote.*.url:git@github.com:shieldedtech/**"]
         path = /home/sgillespie/.config/git/iohk.inc
