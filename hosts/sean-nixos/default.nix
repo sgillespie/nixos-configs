@@ -7,7 +7,7 @@
     ];
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_1;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
 
     loader = {
       grub = {
@@ -23,7 +23,6 @@
 
   networking = {
     hostName = "sean-nixos";
-    networkmanager.enable = lib.mkForce false;
   };
 
   hardware = {
