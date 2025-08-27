@@ -45,6 +45,7 @@
 
   programs = {
     haskell.enable = true;
+    retroarch.enable = true;
     wayland.enable = false;
   };
   sops.enable = true;

@@ -56,6 +56,7 @@
         ./modules/hydra
         ./modules/minecraft
         ./modules/networking
+        ./modules/retroarch
         ./modules/users
         ./modules/yubikey
         ./modules/packages
