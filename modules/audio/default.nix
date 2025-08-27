@@ -26,7 +26,7 @@ with lib; {
     };
 
     services = {
-      pipewire.enable = false;
+      pipewire.enable = lib.mkForce false;
 
       pulseaudio = {
         enable = true;
