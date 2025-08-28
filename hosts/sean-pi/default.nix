@@ -14,11 +14,30 @@
 
   networking = {
     hostName = "sean-pi";
+    defaultGateway = "192.168.1.254";
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
     networkmanager.enable = lib.mkForce false;
 
+    interfaces.enabcm6e4ei0.ipv4.addresses = [
+      {
+        address = "192.168.1.10";
+        prefixLength = 24;
+      }
+    ];
+
     hosts = {
-      "192.168.0.100" = [
+      "192.168.1.10" = [
+        "dnsmasq.local"
         "pi.local"
+        "home-assistant.mistersg.net"
+        "mqtt.mistersg.net"
+      ];
+
+      "192.168.0.109" = [
+        "retropie.local"
       ];
     };
   };
@@ -53,13 +72,16 @@
     virtualisation.enable = false;
     xserver.enable = false;
     yubikey.enable = false;
+
+    lan = {
+      enable = true;
+      dhcpStart = "192.168.1.100";
+      dhcpEnd = "192.168.1.200";
+      listenAddresses = [ "192.168.1.10" ];
+    };
   };
 
   sops.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

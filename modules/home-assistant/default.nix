@@ -88,19 +88,6 @@ with lib;
         };
       };
 
-      # Local DNS server. This is how we get lets encrypt certificates for
-      # mistersg.net (defined below)
-      dnsmasq = {
-        enable = true;
-        settings = {
-          server = config.networking.nameservers;
-          local-service = true;
-          log-queries = true;
-          bogus-priv = true;
-          domain-needed = true;
-        };
-      };
-
       # MQTT server--Used for Zigbee<->Home Assistant communication
       mosquitto = {
         enable = true;
@@ -206,21 +193,12 @@ with lib;
     networking = {
       # Expose DNS and HTTP
       firewall = {
-        allowedTCPPorts = [53 80 443];
-        allowedUDPPorts = [53 80 443];
+        allowedTCPPorts = [ 80 443 ];
+        allowedUDPPorts = [ 80 443 ];
       };
 
       # Virtual hosts for local DNS
       hosts = {
-        "192.168.0.100" = [
-          "home-assistant.mistersg.net"
-          "mqtt.mistersg.net"
-          "dnsmasq.local"
-        ];
-
-        "192.168.0.109" = [
-          "retropie.local"
-        ];
       };
     };
 
