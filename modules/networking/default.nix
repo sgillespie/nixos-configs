@@ -77,14 +77,11 @@ with lib;
 
           dhcp-option = [
             "option:router,${config.networking.defaultGateway.address}"
-            "option6:dns-server,[fd00:1234:5678::1]"
           ];
 
           dhcp-range = [
             # Range of IPv4 addresses to give out
             "${lan.dhcpStart},${lan.dhcpEnd},24h"
-            # Enable slaac IPv6 allocation
-            "fd00:1234:5678::100,fd00:1234:5678::1ff,slaac,64,24h"
           ];
         };
       };
