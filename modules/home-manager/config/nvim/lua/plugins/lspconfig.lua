@@ -5,15 +5,22 @@ return {
     lazy = false,
 
     config = function(_, opts)
-      vim.lsp.set_log_level('debug')
+      vim.lsp.set_log_level('info')
       vim.lsp.enable('hls')
       vim.lsp.config('hls', {
         filetypes = { 'haskell', 'lhaskell' },
-        cmd = { "haskell-language-server", "--lsp", "--debug" };
+        cmd = {
+          "haskell-language-server",
+          "--lsp",
+          -- Uncomment me to debug HLS
+          -- "--debug",
+        };
         settings = {
           haskell = {
             cabalFormattingProvider = "cabal-gild",
             formattingProvider = "fourmolu",
+            -- Uncomment me to work on HLS
+            -- formattingProvider = "stylish-haskell",
           },
         },
       })

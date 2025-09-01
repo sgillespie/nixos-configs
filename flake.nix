@@ -1,13 +1,19 @@
 {
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+    cardanoDbSync.url = github:sgillespie/cardano-db-sync;
     cardanoNode.url = github:input-output-hk/cardano-node?rev=40192a627d56d4c467cd88c0ceac50e83cccb0a7;
-    cardanoDbSync.url = github:sgillespie/cardano-db-sync?rev=43b2f07869f01f975260fedf92dc1fa34727caaf;
     feedback.url = github:NorfairKing/feedback;
+    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
+    nixpkgs-rpi.url = github:nvmd/nixpkgs/modules-with-keys-unstable;
 
     homeManager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-raspberrypi = {
+      url = github:nvmd/nixos-raspberrypi/main;
+      inputs.nixpkgs.follows = "nixpkgs-rpi";
     };
 
     sops = {
@@ -88,6 +94,17 @@
             system = "aarch64-linux";
             modules = modules ++ [./hosts/sean-pi];
           };
+
+          sean-pi-public = attrs.nixos-raspberrypi.lib.nixosSystemFull {
+            specialArgs = attrs;
+            system = "aarch64-linux";
+
+            modules = modules ++ [
+              ./hosts/sean-pi-public
+              # nvmd:nixpkgs fork seems to be lagging just a bit behind
+              { disabledModules = [ ./modules/xserver ]; }
+            ];
+          };
         };
 
         legacyPackages = pkgs;
@@ -100,7 +117,7 @@
 
           sean-pi = { pkgs, ...}: {
             deployment = {
-              targetHost = "pi.local";
+              targetHost = "192.168.1.10";
             };
 
             nixpkgs.system = self.nixosConfigurations.sean-pi._module.args.system;
@@ -108,4 +125,13 @@
           };
         };
       };
+
+  nixConfig = {
+    extra-substituters = [
+      "https://nixos-raspberrypi.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+    ];
+  };
 }

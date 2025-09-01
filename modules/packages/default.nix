@@ -10,17 +10,13 @@
         colmena
         cryptsetup
         curl
-        elinks
         elocrypt
         gcc
-        git-lfs
-        gitAndTools.gitFull
+        git
         gnumake
         gnupg
         iamb
-        irssi
         jq
-        nodejs_latest
         openssh
         openssl
         neovim
@@ -28,7 +24,6 @@
         patchelf
         parted
         pass
-        python3
         unzip
         usbutils
         wget

@@ -3,6 +3,7 @@ keys:
   - &server_sean-work age1xctjfgc9t580qkfxgf3mma06th9x2g90vgkp6w66rp9cru6m6aesrmx9rl
   - &server_sean-pi age1qy7qw2wk5gcqaprfl5pye9y25p7r7vwsfsxzkzd85ysp9p89yu7qg070k0
   - &server_sean-nixos age1p0ct7yt3yzm9dgpm8unq74ea7jtr74myzvn5dxl5r9p268m68vms40c0dn
+  - &server_sean-pi-public age1tm6ewhady2xh87dyywj64m5kw9q27ung3dflawe3989nn3zrzs0sh2jpye
 
 creation_rules:
   - path_regex: secrets/home-assistant.yaml$
@@ -18,4 +19,5 @@ creation_rules:
         age:
           - *server_sean-work
           - *server_sean-pi
+          - *server_sean-pi-public
           - *server_sean-nixos
