@@ -3,6 +3,8 @@
 let
   emacsConfig = builtins.readFile ./config/emacs/default.el;
 in {
+  environment.systemPackages = with pkgs; [ pre-commit ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
