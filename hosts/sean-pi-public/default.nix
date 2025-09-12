@@ -40,7 +40,7 @@
   ];
 
   hardware = {
-    # nvidia.enable = false;
+    nvidia.enable = false;
     audio.enable = false;
   };
 
