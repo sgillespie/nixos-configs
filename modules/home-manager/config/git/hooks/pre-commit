@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
+
+if [[ -f ".pre-commit-config.yaml" ]]; then
+  pre-commit hook-impl \
+    --config=.pre-commit-config.yaml \
+    --hook-type=pre-commit \
+    --hook-dir "${REPO_ROOT}"
+fi
