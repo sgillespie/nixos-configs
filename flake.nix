@@ -5,7 +5,7 @@
     feedback.url = github:NorfairKing/feedback;
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     nixpkgs-rpi.url = github:nvmd/nixpkgs/modules-with-keys-unstable;
-
+    attic.url = github:zhaofengli/attic;
     homeManager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -52,6 +52,7 @@
         cardanoDbSync.nixosModules.cardano-db-sync
         homeManager.nixosModules.home-manager
         sops.nixosModules.sops
+        attrs.attic.nixosModules.atticd
         ./modules/ai
         ./modules/attic
         ./modules/audio

@@ -3,6 +3,7 @@
 {
   environment.systemPackages =
       with pkgs; [
+        attic-client
         autoconf
         automake
         bashInteractive

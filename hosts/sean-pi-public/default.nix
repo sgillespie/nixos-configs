@@ -17,8 +17,15 @@
     nameservers = [ "192.168.1.10" ]; # sean-pi
 
     interfaces.end0.ipv4.addresses = [
+      # Network-local names will be bound here
       {
         address = "192.168.1.11";
+        prefixLength = 24;
+      }
+
+      # Public DNS records will be forwarded here
+      {
+        address = "192.168.1.12";
         prefixLength = 24;
       }
     ];
@@ -43,7 +50,7 @@
 
   services = {
     ai.enable = false;
-    atticd.enable = false;
+    atticd.enable = true;
     cardano-node.enable = false;
     home-assistant.enable = false;
     hydra.enable = false;

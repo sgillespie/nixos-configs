@@ -49,7 +49,7 @@
 
   services = {
     ai.enable = true;
-    atticd.enable = true;
+    atticd.enable = false;
     logind.lidSwitchExternalPower = "ignore";
     yubikey.enable = true;
     minecraft-bedrock-server.enable = false;

@@ -38,6 +38,7 @@
 
       "192.168.1.11" = [
         "pi-public.local"
+        "nix-cache-local.mistersg.net"
       ];
 
       "192.168.0.109" = [

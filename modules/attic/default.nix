@@ -28,9 +28,31 @@ with lib;
           # The preferred average size of a chunk, in bytes
           avg-size = 128 * 1024; # 128 KiB
 
-          # The preferred maximum size of a chunk, in bytes
+         # The preferred maximum size of a chunk, in bytes
           max-size = 256 * 1024; # 256 KiB
         };
+      };
+    };
+
+    services.nginx = {
+      enable = true;
+      clientMaxBodySize = "2000m";
+      recommendedProxySettings = mkDefault true;
+
+      virtualHosts."nix-cache-local.mistersg.net" = {
+        forceSSL = true;
+        enableACME = true;
+        acmeRoot = null;
+
+        locations."/".proxyPass = "http://[::]:8001";
+      };
+
+      virtualHosts."nix-cache.mistersg.net" = {
+        forceSSL = true;
+        enableACME = true;
+        acmeRoot = null;
+
+        locations."/".proxyPass = "http://[::]:8001";
       };
     };
 
@@ -40,12 +62,37 @@ with lib;
     };
     users.groups.atticd = {};
 
-    environment.systemPackages = with pkgs; [ attic-client attic-server ];
+    environment.systemPackages = with pkgs; [
+      attic-client attic-server
+    ];
+
+
+    networking.firewall = {
+      allowedTCPPorts = [ 80 443 ];
+      allowedUDPPorts = [ 80 443 ];
+    };
+
+    # Lets encrypt certificates
+    security.acme = {
+      acceptTerms = true;
+
+      # DNS challenge
+      defaults = {
+        email = "sean@mistersg.net";
+        dnsProvider = "dreamhost";
+        environmentFile = secrets."letsEncrypt/environment".path;
+      };
+    };
 
     sops.secrets = {
       "attic/environment" = {
         inherit sopsFile;
         owner = "atticd";
+      };
+
+      "letsEncrypt/environment" = {
+        sopsFile = ../../secrets/acme.yaml;
+        owner = "acme";
       };
     };
   };

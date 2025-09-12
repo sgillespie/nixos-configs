@@ -12,6 +12,13 @@ creation_rules:
           - *admin_sgillespie
         age:
           - *server_sean-pi
+  - path_regex: secrets/acme.yaml$
+    key_groups:
+      - pgp:
+          - *admin_sgillespie
+        age:
+          - *server_sean-pi
+          - *server_sean-pi-public
   - path_regex: secrets/.*$
     key_groups:
       - pgp:
