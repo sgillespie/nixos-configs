@@ -30,19 +30,19 @@
 
     hosts = {
       "192.168.1.10" = [
-        "dnsmasq.local"
-        "pi.local"
+        "dnsmasq.home"
+        "pi.home"
         "home-assistant.mistersg.net"
         "mqtt.mistersg.net"
       ];
 
       "192.168.1.11" = [
-        "pi-public.local"
+        "pi-public.home"
         "nix-cache-local.mistersg.net"
       ];
 
       "192.168.0.109" = [
-        "retropie.local"
+        "retropie.home"
       ];
     };
   };
