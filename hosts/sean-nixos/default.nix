@@ -33,6 +33,7 @@
 
   services = {
     ai.enable = true;
+    caldav.enable = false;
     minecraft-bedrock-server.enable = false;
     yubikey.enable = true;
     ntp.enable = true;

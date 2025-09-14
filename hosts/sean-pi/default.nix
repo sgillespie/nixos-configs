@@ -39,6 +39,7 @@
       "192.168.1.11" = [
         "pi-public.home"
         "nix-cache-local.mistersg.net"
+        "calendar.mistersg.net"
       ];
 
       "192.168.0.109" = [
@@ -68,6 +69,7 @@
   services = {
     ai.enable = false;
     atticd.enable = false;
+    caldav.enable = false;
     cardano-node.enable = false;
     home-assistant.enable = true;
     hydra.enable = false;

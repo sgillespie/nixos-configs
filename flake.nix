@@ -57,6 +57,7 @@
         ./modules/attic
         ./modules/audio
         ./modules/cardano-node
+        ./modules/caldav
         ./modules/console
         ./modules/home-assistant
         ./modules/home-manager

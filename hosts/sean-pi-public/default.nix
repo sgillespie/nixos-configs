@@ -51,6 +51,7 @@
   services = {
     ai.enable = false;
     atticd.enable = true;
+    caldav.enable = true;
     cardano-node.enable = false;
     home-assistant.enable = false;
     hydra.enable = false;

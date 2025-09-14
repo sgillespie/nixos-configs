@@ -62,6 +62,7 @@ with lib;
       };
 
       neovim.enable = true;
+      thunderbird.enable = true;
     };
 
     services = {
