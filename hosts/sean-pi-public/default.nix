@@ -40,7 +40,8 @@
   ];
 
   hardware = {
-    nvidia.enable = false;
+    # The xserver module is disabled on this host, so the nvidia option is not available
+    # nvidia.enable = false;
     audio.enable = false;
   };
 
