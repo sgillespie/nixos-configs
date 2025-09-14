@@ -12,12 +12,14 @@
         cryptsetup
         curl
         elocrypt
+        file
         gcc
         git
         gnumake
         gnupg
         iamb
         jq
+        lsof
         openssh
         openssl
         neovim
