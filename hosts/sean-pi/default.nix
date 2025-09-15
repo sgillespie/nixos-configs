@@ -39,8 +39,11 @@
       "192.168.1.11" = [
         "pi-public.home"
         "nix-cache-local.mistersg.net"
-        "calendar.mistersg.net"
       ];
+
+      # This is intentionally left blank, because all public names are registered to this
+      # interface via external DNS at dreamhost
+      "192.168.1.12" = [];
 
       "192.168.0.109" = [
         "retropie.home"
