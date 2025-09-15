@@ -66,7 +66,6 @@ with lib;
       attic-client attic-server
     ];
 
-
     networking.firewall = {
       allowedTCPPorts = [ 80 443 ];
       allowedUDPPorts = [ 80 443 ];
@@ -79,7 +78,7 @@ with lib;
       # DNS challenge
       defaults = {
         email = "sean@mistersg.net";
-        dnsProvider = "dreamhost";
+        dnsProvider = "cloudflare";
         environmentFile = secrets."letsEncrypt/environment".path;
       };
     };
