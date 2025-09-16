@@ -32,14 +32,22 @@ with lib;
       tdesktop
       xclip
       xdotool
+
+      # GTK
+      lxappearance
       dracula-theme
-      adwaita-icon-theme
+      materia-theme
+      tela-icon-theme
+      volantes-cursors
     ];
 
     fonts = {
       fontDir.enable = true;  # This is required for extra fonts
 
       packages = with pkgs; [
+        lora
+        merriweather
+        merriweather-sans
         roboto
         roboto-mono
         source-code-pro
