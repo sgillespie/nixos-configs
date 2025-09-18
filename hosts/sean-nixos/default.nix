@@ -7,7 +7,6 @@
     ];
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_13;
     binfmt.emulatedSystems = [ "aarch64-linux" ];
 
     loader = {
@@ -46,7 +45,9 @@
 
   programs = {
     haskell.enable = true;
-    retroarch.enable = true;
+    # Re-enable when emulationstation-de is fixed
+    # See: https://github.com/NixOS/nixpkgs/issues/420975.
+    retroarch.enable = false;
     wayland.enable = false;
   };
   sops.enable = true;

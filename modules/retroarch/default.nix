@@ -18,6 +18,18 @@ with lib;
   };
 
   config = mkIf cfg.enable {
+    assertions = [
+      {
+        assertion = !cfg.enable;
+        message = ''
+          RetroArch is temporarily disabled due to the emulationstation-de dependency
+          chain being broken.
+
+          See: https://github.com/NixOS/nixpkgs/issues/420975.
+        '';
+      }
+    ];
+
     environment.systemPackages = with pkgs; [
       emulationstation-de
       retroarch-free
