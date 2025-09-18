@@ -11,6 +11,8 @@
         colmena
         cryptsetup
         curl
+        dig
+        dnsutils
         elocrypt
         file
         gcc
@@ -27,6 +29,7 @@
         patchelf
         parted
         pass
+        pciutils
         unzip
         usbutils
         wget
