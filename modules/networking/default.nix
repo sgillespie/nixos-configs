@@ -64,6 +64,7 @@ with lib;
           bogus-priv = true;
           cache-size = 5000;
           dhcp-authoritative = true;
+          domain = "home";
           domain-needed = true;
           min-cache-ttl = 60;
           no-resolv = true;
