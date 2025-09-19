@@ -32,6 +32,7 @@ with lib;
       tdesktop
       xclip
       xdotool
+      xfontsel
 
       # GTK
       lxappearance
@@ -45,16 +46,18 @@ with lib;
       fontDir.enable = true;  # This is required for extra fonts
 
       packages = with pkgs; [
+        atkinson-hyperlegible
+        atkinson-hyperlegible-mono
+        corefonts
+        inter
         lora
         merriweather
         merriweather-sans
-        roboto
-        roboto-mono
-        source-code-pro
-        corefonts
         nerd-fonts._0xproto
-        nerd-fonts.fira-code
-        nerd-fonts.droid-sans-mono
+        nerd-fonts.caskaydia-cove
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.hasklug
+        source-code-pro
       ];
     };
 
