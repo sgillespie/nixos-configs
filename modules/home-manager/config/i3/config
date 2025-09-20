@@ -196,7 +196,7 @@ bindsym XF86AudioLowerVolume exec amixer set Master 5%-
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
 
 # Launchers
-set $mode_launcher Launch: [b]rave [B]rave (work) [d]iscord [S]creenshot [s]lack s[p]otify [t]elegram neo[v]ide [y]ubioath
+set $mode_launcher Launch: [b]rave [B]rave (work) [d]iscord [S]creenshot [s]lack s[p]otify [T]hunderbird [t]elegram neo[v]ide [y]ubioath
 bindsym Mod4+l mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -206,7 +206,8 @@ mode "$mode_launcher" {
         bindsym Shift+s --release exec scrot -s "$HOME/documents/ss-$(date +%Y%m%d-%H%M%S).png"; mode "default"
         bindsym s exec slack; mode "default"
         bindsym p exec spotify; mode "default"
-        bindsym t exec telegram-desktop; mode "default"
+        bindsym Shift+t exec Thunderbird; mode "default"
+        bindsym t exec Telegram; mode "default"
         bindsym v exec neovide; mode "default"
         bindsym y exec yubioath-flutter; mode "default"
 
