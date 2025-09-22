@@ -18,6 +18,15 @@ with lib;
       ollama = {
         enable = true;
         acceleration = "cuda";
+        loadModels = [
+          "llama2:7b-chat"
+          "llama3.1:8b-instruct-q4_K_M"
+          "llama3.1:8b"
+          "mistral:7b"
+          "mistral:7b-instruct"
+          "codellama:7b-instruct"
+          "zephyr:7b-beta"
+        ];
       };
 
       open-webui = {
