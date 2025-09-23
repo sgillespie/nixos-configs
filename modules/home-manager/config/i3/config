@@ -206,7 +206,7 @@ mode "$mode_launcher" {
         bindsym Shift+s --release exec scrot -s "$HOME/documents/ss-$(date +%Y%m%d-%H%M%S).png"; mode "default"
         bindsym s exec slack; mode "default"
         bindsym p exec spotify; mode "default"
-        bindsym Shift+t exec Thunderbird; mode "default"
+        bindsym Shift+t exec thunderbird; mode "default"
         bindsym t exec Telegram; mode "default"
         bindsym v exec neovide; mode "default"
         bindsym y exec yubioath-flutter; mode "default"
