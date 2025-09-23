@@ -22,6 +22,7 @@
         iamb
         jq
         lsof
+        magic-wormhole
         openssh
         openssl
         neovim
