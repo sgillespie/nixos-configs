@@ -17,4 +17,10 @@ in {
       allowUnfree = true;
     };
   };
+
+  # Extra nix settings that should be globally enabled
+  nix.settings.extra-experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }

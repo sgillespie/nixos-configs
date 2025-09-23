@@ -20,7 +20,6 @@ with lib;
 
       extra-experimental-features = [
         "recursive-nix"
-        "nix-command flakes"
         "fetch-closure"
       ];
 
