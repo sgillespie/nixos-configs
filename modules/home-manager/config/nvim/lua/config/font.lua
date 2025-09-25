@@ -1,1 +1,1 @@
-vim.o.guifont = "Hasklug Nerd Font Medium:h12"
+vim.o.guifont = "Hasklug Nerd Font Med:h12"
