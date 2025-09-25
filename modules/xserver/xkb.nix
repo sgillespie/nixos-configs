@@ -10,7 +10,7 @@ with lib;
 {
   config = mkIf cfg.enable {
     services.xserver.xkb = {
-      layout = "3l-emacs";
+      layout = "us";
       options = "terminate:ctrl_alt_bksp,ctrl:swapcaps";
 
       extraLayouts."3l-emacs" = {
