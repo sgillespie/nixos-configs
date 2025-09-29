@@ -22,6 +22,7 @@ in {
         ".bashrc".source = ./config/bash/bashrc;
         ".zshrc".source = ./config/zsh/zshrc;
         ".local/libexec/i3blocks".source = "${pkgs.i3blocks-contrib}/libexec/i3blocks";
+        ".local/share/oterm/config.json".source = ./config/oterm/config.json;
         ".xinitrc".source = ./config/startx/xinitrc;
       };
 

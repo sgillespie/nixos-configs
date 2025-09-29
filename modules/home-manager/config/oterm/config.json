@@ -1,0 +1,38 @@
+{
+  "theme": "tokyo-night",
+  "splash-screen": false,
+
+  "keymap": {
+    "newline": "ctrl+v",
+    "delete.chat": "ctrl+d",
+    "next.chat": "ctrl+n",
+    "prev.chat": "ctrl+b",
+    "new.chat": "ctrl+o"
+  },
+
+  "mcpServers": {
+    "time": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-time"
+      ]
+    },
+
+    "searxng": {
+      "command": "npx",
+      "args": ["-y", "mcp-searxng"],
+      "env": {
+        "SEARXNG_URL": "http://localhost:3010"
+      }
+    },
+
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/run/oterm"
+      ]
+    }
+  }
+}

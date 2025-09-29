@@ -74,9 +74,13 @@ with lib;
     };
 
     environment.systemPackages = with pkgs; [
+      nodejs
       ollama
       oterm
+      uv
     ];
+
+    programs.nix-ld.enable = true;
 
     sops.secrets."searxng/environment" = {};
   };
