@@ -7,7 +7,7 @@ in
 
 with lib;
 
-{
+ {
   options.services.ai.enable = mkOption {
     type = types.bool;
     default = false;
@@ -38,9 +38,12 @@ with lib;
         port = 3000;
 
         package = pkgs.open-webui.overridePythonAttrs (old: {
-          dependencies = old.dependencies ++ [
-            pkgs.python3Packages.itsdangerous
-          ];
+          dependencies = old.dependencies ++ 
+            (with pkgs.python3Packages; [
+              cloudscraper # For local_web_scrape
+              html2text    # For local_web_scrape
+              itsdangerous # Required for Open WebUI
+            ]);
         });
       };
 
