@@ -36,6 +36,11 @@
         wget
         zip
         zsh
+
+        # Kubernetes
+        awscli2
+        k9s
+        kubectl
       ] ++ pkgs.lib.optionals (pkgs.system == "x86_64-linux") [
         gibberish
       ];
