@@ -1,6 +1,6 @@
 {
   inputs = {
-    cardanoDbSync.url = github:sgillespie/cardano-db-sync;
+    cardanoDbSync.url = github:input-output-hk/cardano-db-sync;
     cardanoNode.url = github:input-output-hk/cardano-node?rev=40192a627d56d4c467cd88c0ceac50e83cccb0a7;
     feedback.url = github:NorfairKing/feedback;
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
