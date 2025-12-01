@@ -21,6 +21,7 @@ return {
             formattingProvider = "fourmolu",
             -- Uncomment me to work on HLS
             -- formattingProvider = "stylish-haskell",
+            sessionLoading = "multipleComponents",
           },
         },
       })
