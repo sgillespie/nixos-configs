@@ -21,6 +21,10 @@ with lib;
           name = "hydra";
           ensureClauses.superuser = true;
         }
+      ] ++ optionals config.services.monitoring.enable [
+        {
+          name = "postgres_exporter";
+        }
       ];
 
       dataDir = "/blockchain/postgresql/${config.services.postgresql.package.psqlSchema}";

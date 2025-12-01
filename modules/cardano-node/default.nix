@@ -52,6 +52,8 @@ with lib; {
             users sgillespie ${postgres.user}
             users postgres postgres
             users sgillespie sgillespie
+            users postgres postgres_exporter
+            users sgillespie postgres_exporter
 
             users hydra hydra
             users hydra-queue-runner hydra

@@ -63,6 +63,7 @@
         ./modules/home-manager
         ./modules/hydra
         ./modules/minecraft
+        ./modules/monitoring
         ./modules/networking
         ./modules/retroarch
         ./modules/users

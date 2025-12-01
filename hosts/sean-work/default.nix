@@ -51,6 +51,7 @@
     ai.enable = true;
     atticd.enable = false;
     caldav.enable = false;
+    monitoring.enable = true;
     logind.lidSwitchExternalPower = "ignore";
     yubikey.enable = true;
     minecraft-bedrock-server.enable = false;
