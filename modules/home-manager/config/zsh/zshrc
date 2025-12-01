@@ -40,12 +40,5 @@ elif [[ -S "${XDG_RUNTIME_DIR}/ssh-agent.socket" ]]; then
     export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 fi
 
-# Editors
-alias ec="$EC -n"
-
-function ecbuffer {
-    TMP="$(mktemp /tmp/emacsstdinXXX)"
-    cat > $TMP
-    ec --alternate-editor /usr/bin/false --eval "(let ((b (create-file-buffer \"*stdin*\"))) (switch-to-buffer b) (insert-file-contents \"${TMP}\"))"
-    rm $TMP
-}
+# Extend PATH
+export PATH="$HOME/.local/bin:$PATH"
