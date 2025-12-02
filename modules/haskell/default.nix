@@ -47,7 +47,7 @@ with lib;
         hlint
         nix-direnv
         stack
-      ] ++ pkgs.lib.optionals (pkgs.system == "x86_64-linux") [
+      ] ++ pkgs.lib.optionals (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [
         feedback
       ];
     };

@@ -52,7 +52,7 @@
     atticd.enable = false;
     caldav.enable = false;
     monitoring.enable = true;
-    logind.lidSwitchExternalPower = "ignore";
+    logind.settings.Login.HandleLidSwitchExternalPower = "ignore";
     yubikey.enable = true;
     minecraft-bedrock-server.enable = false;
     ntp.enable = true;

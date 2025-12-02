@@ -1,7 +1,7 @@
 { attrs, pkgs, ... }:
 
 let
-  inherit (pkgs) system;
+  inherit (pkgs.stdenv.hostPlatform) system;
 in {
   nixpkgs = {
     overlays = [

@@ -52,7 +52,8 @@
         cardanoDbSync.nixosModules.cardano-db-sync
         homeManager.nixosModules.home-manager
         sops.nixosModules.sops
-        attrs.attic.nixosModules.atticd
+        # The Attic module seems to be broken on nix-2.31
+        # attrs.attic.nixosModules.atticd
         ./modules/ai
         ./modules/attic
         ./modules/audio

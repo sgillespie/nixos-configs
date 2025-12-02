@@ -16,8 +16,9 @@ with lib;
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      pinentry
+      pinentry-curses
       pinentry-gtk2
+      pinentry-rofi
       yubikey-personalization
       yubioath-flutter
     ];
@@ -34,7 +35,7 @@ with lib;
       gnupg.agent = {
         enable = true;
         enableSSHSupport = true;
-        pinentryPackage = pkgs.pinentry-gtk2;
+        pinentryPackage = mkDefault pkgs.pinentry-rofi;
       };
 
       ssh.startAgent = false;

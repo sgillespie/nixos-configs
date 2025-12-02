@@ -29,7 +29,7 @@ with lib;
       scrot
       slack
       spotify
-      tdesktop
+      telegram-desktop
       xclip
       xdotool
       xfontsel
