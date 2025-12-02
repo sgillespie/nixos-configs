@@ -26,6 +26,7 @@ with lib;
       passff-host
       pavucontrol
       rofi
+      rofi-pass
       scrot
       slack
       spotify

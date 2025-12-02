@@ -39,6 +39,7 @@ in {
         "zsh".source = ./config/zsh;
         "i3blocks-contrib".source = pkgs.i3blocks-contrib;
         "Yubico".source = ./config/Yubico;
+        "rofi-pass".source = ./config/rofi-pass;
       };
     };
   };
