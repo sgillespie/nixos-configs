@@ -10,6 +10,8 @@
     ./hardware-configuration.nix
   ];
 
+  boot.loader.raspberryPi.bootloader = "kernel";
+
   networking = {
     hostName = "sean-pi-public";
     networkmanager.enable = lib.mkForce false;
