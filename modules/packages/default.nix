@@ -39,6 +39,7 @@
 
         # Kubernetes
         awscli2
+        kubernetes-helm
         k9s
         kubectl
       ] ++ pkgs.lib.optionals (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [
