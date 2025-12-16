@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
 let
+  inherit (config.sops) secrets;
   cfg = config.services.hydra;
+  sopsFile = ../../secrets/hydra.yaml;
 in
 
 with lib;
@@ -11,6 +13,8 @@ with lib;
     environment.systemPackages = with pkgs; [ hydra-cli ];
 
     nix.settings = {
+      allow-import-from-derivation = true;
+
       system-features = [
         "big-parallel"
         "kvm"
@@ -30,11 +34,72 @@ with lib;
       ];
     };
 
-    services.hydra = {
-      hydraURL = "http://localhost:3000"; # externally visible URL
-      notificationSender = "hydra@localhost"; # e-mail of Hydra service
-      buildMachinesFiles = [];
-      useSubstitutes = true;
+    services = {
+      hydra = {
+        hydraURL = "http://localhost:3000"; # externally visible URL
+        notificationSender = "hydra@localhost"; # e-mail of Hydra service
+        buildMachinesFiles = [];
+        useSubstitutes = true;
+        extraConfig = ''
+          allow_import_from_derivation = true
+        '';
+      };
+
+      github-hydra-bridge = {
+        enable = true;
+        hydraHost = "build.sgillespie.dev";
+        hydraUser = "hydratools";
+        hydraPassFile = secrets."hydra-tools/pass".path;
+        ghSecretFile = secrets."hydra-tools/gh-secret".path;
+        port = 8811;
+      };
+
+      hydra-github-bridge.public = {
+        enable = true;
+        ghAppId = 2455456;
+        ghAppInstallId = 99155919;
+        ghAppKeyFile = secrets."hydra-tools/gh-app-key".path;
+        ghUserAgent = "";
+        hydraHost = "build.sgillespie.dev";
+      };
+
+      nginx = {
+        enable = true;
+        recommendedProxySettings = mkDefault true;
+
+        virtualHosts."build.sgillespie.dev" = {
+          forceSSL = true;
+          enableACME = true;
+          acmeRoot = null;
+
+          locations."/".proxyPass = "http://[::]:3000";
+        };
+
+        virtualHosts."hydra-tools.sgillespie.dev" = {
+          forceSSL = true;
+          enableACME = true;
+          acmeRoot = null;
+
+          locations."/".proxyPass = "http://127.0.0.1:8811";
+        };
+      };
+    };
+
+    sops.secrets = {
+      "hydra-tools/pass" = {
+        inherit sopsFile;
+        owner = "hydra";
+      };
+
+      "hydra-tools/gh-secret" = {
+        inherit sopsFile;
+        owner = "hydra";
+      };
+
+      "hydra-tools/gh-app-key" = {
+        inherit sopsFile;
+        owner = "hydra";
+      };
     };
   };
 }

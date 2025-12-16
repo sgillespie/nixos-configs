@@ -6,6 +6,8 @@
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     nixpkgs-rpi.url = github:nvmd/nixpkgs/modules-with-keys-unstable;
     attic.url = github:zhaofengli/attic;
+    hydraTools.url = github:input-output-hk/hydra-tools;
+
     homeManager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,12 +48,14 @@
         };
       };
 
-      modules = [
+      modules = with attrs; [
         ./modules/nixpkgs
         cardanoNode.nixosModules.cardano-node
         cardanoDbSync.nixosModules.cardano-db-sync
         homeManager.nixosModules.home-manager
         sops.nixosModules.sops
+        hydraTools.nixosModules.github-hydra-bridge
+        hydraTools.nixosModules.hydra-github-bridge
         # The Attic module seems to be broken on nix-2.31
         # attrs.attic.nixosModules.atticd
         ./modules/ai
@@ -133,9 +137,13 @@
   nixConfig = {
     extra-substituters = [
       "https://nixos-raspberrypi.cachix.org"
+      "https://cache.iog.io"
+      "https://cache.zw3rk.com" # provides aarch64-linux and aarch64-darwin
     ];
     extra-trusted-public-keys = [
       "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+      "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
+      "loony-tools:pr9m4BkM/5/eSTZlkQyRt57Jz7OMBxNSUiMC4FkcNfk="
     ];
   };
 }

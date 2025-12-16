@@ -57,10 +57,10 @@
     caldav.enable = true;
     cardano-node.enable = false;
     home-assistant.enable = false;
-    hydra.enable = false;
+    hydra.enable = true;
     minecraft-bedrock-server.enable = false;
     ntp.enable = true;
-    postgresql.enable = false;
+    postgresql.enable = true;
     virtualisation.enable = false;
     xserver.enable = false;
     yubikey.enable = false;
