@@ -36,11 +36,15 @@
     minecraft-bedrock-server.enable = false;
     yubikey.enable = true;
     ntp.enable = true;
-    postgresql.enable = true;
     cardano-node.enable = true;
     hydra.enable = false;
     virtualisation.enable = true;
     xserver.enable = true;
+
+    postgresql = {
+      enable = true;
+      dataDir = "/blockchain/postgresql/${config.services.postgresql.package.psqlSchema}";
+    };
   };
 
   programs = {
