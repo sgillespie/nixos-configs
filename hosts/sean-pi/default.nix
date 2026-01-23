@@ -37,6 +37,7 @@
       ];
 
       "192.168.1.11" = [
+        "survival.minecraft.home"
         "pi-public.home"
         "nix-cache-local.mistersg.net"
       ];

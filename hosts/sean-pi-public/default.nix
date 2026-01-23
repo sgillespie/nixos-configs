@@ -58,7 +58,7 @@
     cardano-node.enable = false;
     home-assistant.enable = false;
     hydra.enable = true;
-    minecraft-bedrock-server.enable = false;
+    minecraft-bedrock-server.enable = true;
     ntp.enable = true;
     postgresql.enable = true;
     virtualisation.enable = false;
