@@ -16,19 +16,19 @@ with lib;
     };
 
     dhcpStart = mkOption {
-      type = types.string;
+      type = types.str;
       default = "192.168.1.100";
       description = "The beginning range of DHCP addresses";
     };
 
     dhcpEnd = mkOption {
-      type = types.string;
+      type = types.str;
       default = "192.168.1.200";
       description = "The ending range of DHCP addresses";
     };
 
     listenAddresses = mkOption {
-      type = types.listOf types.string;
+      type = types.listOf types.str;
       default = [];
       description = "IP address to bind the DNS and DHCP servers to";
     };
