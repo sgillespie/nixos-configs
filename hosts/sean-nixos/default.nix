@@ -37,9 +37,11 @@
     yubikey.enable = true;
     ntp.enable = true;
     cardano-node.enable = true;
-    hydra.enable = false;
     virtualisation.enable = true;
     xserver.enable = true;
+
+    hydra.enable = false;
+    hydra-github-bridge = {};
 
     postgresql = {
       enable = true;

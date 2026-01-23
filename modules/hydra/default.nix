@@ -12,6 +12,16 @@ with lib;
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ hydra-cli ];
 
+    nix.buildMachines = [
+      { 
+        hostName = "localhost";
+        protocol = null;
+        system = "x86_64-linux";
+        supportedFeatures = ["kvm" "nixos-test" "big-parallel" "benchmark"];
+        maxJobs = 8;
+      }
+    ];
+
     nix.settings = {
       allow-import-from-derivation = true;
 
@@ -38,7 +48,7 @@ with lib;
       hydra = {
         hydraURL = "http://localhost:3000"; # externally visible URL
         notificationSender = "hydra@localhost"; # e-mail of Hydra service
-        buildMachinesFiles = [];
+        buildMachinesFiles = [ "/etc/nix/machines" ];
         useSubstitutes = true;
         extraConfig = ''
           allow_import_from_derivation = true
@@ -57,7 +67,7 @@ with lib;
       hydra-github-bridge.public = {
         enable = true;
         ghAppId = 2455456;
-        ghAppInstallId = 99155919;
+        ghAppInstallIds = "[(\"sgillespie00\", 99155919)]";
         ghAppKeyFile = secrets."hydra-tools/gh-app-key".path;
         ghUserAgent = "";
         hydraHost = "build.sgillespie.dev";

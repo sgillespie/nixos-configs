@@ -90,6 +90,8 @@
       dhcpEnd = "192.168.1.200";
       listenAddresses = [ "192.168.1.10" ];
     };
+
+    hydra-github-bridge = {};
   };
 
   sops.enable = true;

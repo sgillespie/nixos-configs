@@ -10,7 +10,10 @@
     ./hardware-configuration.nix
   ];
 
-  boot.loader.raspberryPi.bootloader = "kernel";
+  boot = {
+    binfmt.emulatedSystems = [ "x86_64-linux" ];
+    loader.raspberryPi.bootloader = "kernel";
+  };
 
   networking = {
     hostName = "sean-pi-public";
