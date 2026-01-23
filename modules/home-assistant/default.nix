@@ -208,8 +208,9 @@ with lib;
 
       # DNS challenge
       defaults = {
-        email = "sean@misters.net";
-        dnsProvider = "dreamhost";
+        email = "sean@mistersg.net";
+        dnsProvider = "cloudflare";
+        dnsResolver = "1.1.1.1:53";
         environmentFile = secrets."letsEncrypt/environment".path;
       };
     };
@@ -226,7 +227,7 @@ with lib;
         };
 
         "letsEncrypt/environment" = {
-          inherit sopsFile;
+          sopsFile = ../../secrets/acme.yaml;
           owner = "acme";
         };
 
