@@ -39,3 +39,5 @@
         path = /home/sgillespie/.config/git/iohk.inc
 [includeIf "hasconfig:remote.*.url:git@github.com:shieldedtech/**"]
         path = /home/sgillespie/.config/git/iohk.inc
+[includeIf "hasconfig:remote.*.url:git@github.com:LFDT-Minokawa/**"]
+        path = /home/sgillespie/.config/git/iohk.inc
