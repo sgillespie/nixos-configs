@@ -1,6 +1,10 @@
 { config, pkgs, attrs, ... }:
 
 {
+  disabledModules = [
+    ../../modules/hydra
+  ];
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -45,7 +49,10 @@
     ];
   };
 
-  environment.systemPackages = [pkgs.acpi];
+  environment.systemPackages = with pkgs; [
+    acpi
+    hydra-cli
+  ];
 
   services = {
     ai.enable = true;
@@ -57,9 +64,19 @@
     minecraft-bedrock-server.enable = false;
     ntp.enable = true;
     cardano-node.enable = true;
-    hydra.enable = false;
     virtualisation.enable = true;
     xserver.enable = true;
+
+    hydra-github-bridge = {};
+
+    hydra = {
+      enable = true;
+      hydraURL = "http://localhost:8000";
+      port = 8000;
+      notificationSender = "hydra@localhost";
+      buildMachinesFiles = [];
+      useSubstitutes = true;
+    };
 
     postgresql = {
       enable = true;
