@@ -6,7 +6,7 @@
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable;
     nixpkgs-rpi.url = github:nvmd/nixpkgs/modules-with-keys-unstable;
     attic.url = github:zhaofengli/attic;
-    hydraTools.url = github:input-output-hk/hydra-tools;
+    hydraTools.url = github:sgillespie/hydra-tools;
 
     homeManager = {
       url = "github:nix-community/home-manager";
@@ -54,7 +54,6 @@
         cardanoDbSync.nixosModules.cardano-db-sync
         homeManager.nixosModules.home-manager
         sops.nixosModules.sops
-        hydraTools.nixosModules.github-hydra-bridge
         hydraTools.nixosModules.hydra-github-bridge
         # The Attic module seems to be broken on nix-2.31
         # attrs.attic.nixosModules.atticd

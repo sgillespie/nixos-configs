@@ -55,22 +55,17 @@ with lib;
         '';
       };
 
-      github-hydra-bridge = {
+      hydra-github-bridge.public = {
         enable = true;
+        ghAppId = 2831135;
+        ghAppInstallIds = "[(\"sgillespie\", 109092203), (\"sgillespie00\", 109092868)]";
+        ghAppKeyFile = secrets."hydra-tools/gh-app-key".path;
+        ghTokenFile = secrets."hydra-tools/gh-secret".path;
+        ghUserAgent = "";
         hydraHost = "build.sgillespie.dev";
         hydraUser = "hydratools";
         hydraPassFile = secrets."hydra-tools/pass".path;
-        ghSecretFile = secrets."hydra-tools/gh-secret".path;
         port = 8811;
-      };
-
-      hydra-github-bridge.public = {
-        enable = true;
-        ghAppId = 2455456;
-        ghAppInstallIds = "[(\"sgillespie00\", 99155919)]";
-        ghAppKeyFile = secrets."hydra-tools/gh-app-key".path;
-        ghUserAgent = "";
-        hydraHost = "build.sgillespie.dev";
       };
 
       nginx = {
