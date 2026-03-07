@@ -2371,11 +2371,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1770928856,
-        "narHash": "sha256-HIK1A3y6f98zVHkV/7hW0E1+gTTGj0hdmyAqo4lr6ag=",
+        "lastModified": 1772808046,
+        "narHash": "sha256-TC1iYKh6uRoR6MU68E3Hyrmtv0L+8c55VaX3Ut5F/OQ=",
         "owner": "sgillespie",
         "repo": "hydra-tools",
-        "rev": "36059516a833f38f0c02e8c0650f73111cead3ec",
+        "rev": "975c7b72a0c4529a806bcffdf950be39f3250aab",
         "type": "github"
       },
       "original": {

@@ -16,7 +16,7 @@ with lib;
       { 
         hostName = "localhost";
         protocol = null;
-        system = "x86_64-linux";
+        systems = [ "aarch64-linux" "x86_64-linux" ];
         supportedFeatures = ["kvm" "nixos-test" "big-parallel" "benchmark"];
         maxJobs = 8;
       }
@@ -48,7 +48,6 @@ with lib;
       hydra = {
         hydraURL = "http://localhost:3000"; # externally visible URL
         notificationSender = "hydra@localhost"; # e-mail of Hydra service
-        buildMachinesFiles = [ "/etc/nix/machines" ];
         useSubstitutes = true;
         extraConfig = ''
           allow_import_from_derivation = true
@@ -58,14 +57,18 @@ with lib;
       hydra-github-bridge.public = {
         enable = true;
         ghAppId = 2831135;
-        ghAppInstallIds = "[(\"sgillespie\", 109092203), (\"sgillespie00\", 109092868)]";
         ghAppKeyFile = secrets."hydra-tools/gh-app-key".path;
+        ghSecretFile = secrets."hydra-tools/gh-secret".path;
         ghTokenFile = secrets."hydra-tools/gh-secret".path;
         ghUserAgent = "";
         hydraHost = "build.sgillespie.dev";
         hydraUser = "hydratools";
         hydraPassFile = secrets."hydra-tools/pass".path;
         port = 8811;
+        ghAppInstallIds = {
+          sgillespie = 109092203;
+          sgillespie00 = 109092868;
+        };
       };
 
       nginx = {
