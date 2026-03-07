@@ -77,8 +77,10 @@ with lib;
     };
 
     environment.systemPackages = with pkgs; [
+      claude-code
       nodejs
       ollama
+      opencode
       oterm
       uv
     ];
