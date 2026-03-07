@@ -21,6 +21,7 @@
         gnupg
         iamb
         jq
+        just
         lsof
         magic-wormhole
         openssh
