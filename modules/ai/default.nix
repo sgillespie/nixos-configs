@@ -18,7 +18,6 @@ with lib;
     services = {
       ollama = {
         enable = true;
-        acceleration = "cuda";
         loadModels = [
           "llama3.1:8b"
           "llama3.1:8b-instruct-q6_K"
@@ -31,6 +30,7 @@ with lib;
           "zephyr:7b-beta"
           "zephyr:7b-beta-q6_K"
         ];
+        package = pkgs.ollama-cuda;
       };
 
       open-webui = {
