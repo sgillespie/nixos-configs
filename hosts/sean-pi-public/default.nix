@@ -61,13 +61,13 @@
     cardano-node.enable = false;
     home-assistant.enable = false;
     hydra.enable = true;
+    lan.enable = false;
     minecraft-bedrock-server.enable = true;
     ntp.enable = true;
     postgresql.enable = true;
     virtualisation.enable = false;
     xserver.enable = false;
     yubikey.enable = false;
-    lan.enable = false;
   };
 
   sops.enable = true;

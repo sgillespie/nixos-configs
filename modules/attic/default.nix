@@ -39,7 +39,7 @@ with lib;
       clientMaxBodySize = "2000m";
       recommendedProxySettings = mkDefault true;
 
-      virtualHosts."nix-cache-local.mistersg.net" = {
+      virtualHosts."nix-cache-local.sgillespie.dev" = {
         forceSSL = true;
         enableACME = true;
         acmeRoot = null;
@@ -47,7 +47,7 @@ with lib;
         locations."/".proxyPass = "http://[::]:8001";
       };
 
-      virtualHosts."nix-cache.mistersg.net" = {
+      virtualHosts."nix-cache.sgillespie.dev" = {
         forceSSL = true;
         enableACME = true;
         acmeRoot = null;

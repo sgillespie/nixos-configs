@@ -39,7 +39,7 @@
       "192.168.1.11" = [
         "survival.minecraft.home"
         "pi-public.home"
-        "nix-cache-local.mistersg.net"
+        "nix-cache-local.sgillespie.dev"
       ];
 
       # This is intentionally left blank, because all public names are registered to this

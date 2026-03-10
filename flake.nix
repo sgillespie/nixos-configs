@@ -55,6 +55,7 @@
         homeManager.nixosModules.home-manager
         sops.nixosModules.sops
         hydraTools.nixosModules.hydra-github-bridge
+        hydraTools.nixosModules.hydra-attic-bridge
         # The Attic module seems to be broken on nix-2.31
         # attrs.attic.nixosModules.atticd
         ./modules/ai

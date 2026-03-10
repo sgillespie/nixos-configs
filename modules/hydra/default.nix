@@ -71,6 +71,13 @@ with lib;
         };
       };
 
+      hydra-attic-bridge = {
+        enable = true;
+        attic = "https://nix-cache-local.sgillespie.dev";
+        cache = "default";
+        environmentFile = secrets."hydra-tools/attic-environment".path;
+      };
+
       nginx = {
         enable = true;
         recommendedProxySettings = mkDefault true;
@@ -93,6 +100,11 @@ with lib;
       };
     };
 
+    systemd.services.hydra-attic-bridge.path = with pkgs; [
+      attic-client
+      nix
+    ];
+
     sops.secrets = {
       "hydra-tools/pass" = {
         inherit sopsFile;
@@ -105,6 +117,11 @@ with lib;
       };
 
       "hydra-tools/gh-app-key" = {
+        inherit sopsFile;
+        owner = "hydra";
+      };
+
+      "hydra-tools/attic-environment" = {
         inherit sopsFile;
         owner = "hydra";
       };
