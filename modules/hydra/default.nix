@@ -56,6 +56,9 @@ with lib;
 
       hydra-github-bridge.public = {
         enable = true;
+        checkRunPrefix = "";
+        enableSse = true;
+        filterJobs = false;
         ghAppId = 2831135;
         ghAppKeyFile = secrets."hydra-tools/gh-app-key".path;
         ghSecretFile = secrets."hydra-tools/gh-secret".path;
@@ -65,6 +68,7 @@ with lib;
         hydraUser = "hydratools";
         hydraPassFile = secrets."hydra-tools/pass".path;
         port = 8811;
+        ssePort = 8812;
         ghAppInstallIds = {
           sgillespie = 109092203;
           sgillespie00 = 109092868;
@@ -76,6 +80,7 @@ with lib;
         attic = "https://nix-cache-local.sgillespie.dev";
         cache = "default";
         environmentFile = secrets."hydra-tools/attic-environment".path;
+        workers = 4;
       };
 
       nginx = {
@@ -102,7 +107,6 @@ with lib;
 
     systemd.services.hydra-attic-bridge.path = with pkgs; [
       attic-client
-      nix
     ];
 
     sops.secrets = {

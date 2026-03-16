@@ -67,7 +67,7 @@
     virtualisation.enable = true;
     xserver.enable = true;
 
-    hydra-github-bridge = {};
+    hydra-github-bridge.enable = false;
 
     hydra = {
       enable = true;
