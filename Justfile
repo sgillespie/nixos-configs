@@ -29,6 +29,9 @@ deploy-sean-pi-public:
 build HOST:
     just build-{{HOST}}
 
+build-local:
+    nixos-rebuild build --flake .
+
 # Build for local desktop (sean-nixos)
 build-sean-nixos:
     nixos-rebuild build --flake .#sean-nixos
