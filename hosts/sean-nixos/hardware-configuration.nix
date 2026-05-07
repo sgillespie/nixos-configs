@@ -32,6 +32,7 @@
 
   fileSystems."/var/lib/cardano-node" =
     { device = "/blockchain/cardano";
+      fsType = "none";
       options = [ "bind" ];
     };
 
@@ -39,26 +40,15 @@
     [ # { device = "/dev/disk/by-label/swap"; }
     ];
 
-  boot.initrd.luks = {
-    yubikeySupport = true;
-    
-    devices."encrypted-home" = {
-      device = "/dev/disk/by-label/luks";
-      
-      yubikey = {
-        slot = 2;
-        twoFactor = false;
-        gracePeriod = 300;
-        keyLength = 64;
-        saltLength = 16;
-        
-        storage = {
-          device = "/dev/disk/by-label/BOOT";
-          fsType = "vfat";
-          path = "/crypt-storage/default";
-        };
+  boot.initrd = {
+    luks = {
+      devices."encrypted-home" = {
+        device = "/dev/disk/by-label/luks";
+        crypttabExtraOpts = [ "fido2-device=auto" ];
       };
     };
+
+    systemd.enable = true;
   };
     
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

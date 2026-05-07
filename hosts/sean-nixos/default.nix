@@ -41,7 +41,7 @@
     xserver.enable = true;
 
     hydra.enable = false;
-    hydra-github-bridge = {};
+    hydra-github-bridge.enable = false;
 
     postgresql = {
       enable = true;

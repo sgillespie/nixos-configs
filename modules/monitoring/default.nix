@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
 let
+  inherit (config.sops) secrets;
   cfg = config.services.monitoring;
+  sopsFile = ../../secrets/default.yaml;
 in
 
 with lib;
@@ -21,13 +23,16 @@ with lib;
         enable = true;
 
         settings = {
+          analytics.reporting_enabled = false;
+
+          security.secret_key = "$__\{${secrets."grafana/secret_key".path}\}";
+
           server = {
             http_addr = "127.0.0.1";
             http_port = 3050;
             enable_gzip = true;
           };
 
-          analytics.reporting_enabled = false;
         };
 
         provision = {
@@ -148,5 +153,10 @@ with lib;
     };
 
     networking.firewall.allowedTCPPorts = [ 3050 9090 ];
+
+    sops.secrets."grafana/secret_key" = {
+      inherit sopsFile;
+      owner = "grafana";
+    };
   };
 }

@@ -11,26 +11,17 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "thunderbolt" "usbhid" "usb_storage" "sd_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ "vfat" "nls_cp437" "nls_iso8859-1" "usbhid" ];
 
-  boot.initrd.luks = {
-    yubikeySupport = true;
-    devices."encrypted-home" = {
-
-      device = "/dev/disk/by-uuid/db76e4f2-0791-4e5e-a95f-54c508cd46dd";
-
-      yubikey = {
-        slot = 2;
-        twoFactor = false;
-        gracePeriod = 300;
-        keyLength = 64;
-        saltLength = 16;
-
-        storage = {
-          device = "/dev/disk/by-uuid/8E0F-3269";
-          fsType = "vfat";
-          path = "/crypt-storage/default";
-        };
+  boot.initrd = {
+    luks = {
+      devices."encrypted-home" = {
+        device = "/dev/disk/by-uuid/db76e4f2-0791-4e5e-a95f-54c508cd46dd";
+        crypttabExtraOpts = [
+          "fido2-device=auto"
+        ];
       };
     };
+
+    systemd.enable = true;
   };
 
   boot.kernelModules = [ "kvm-intel" ];
@@ -59,6 +50,7 @@
 
   fileSystems."/var/lib/cardano-node" =
     { device = "/blockchain/cardano";
+      fsType = "none";
       options = [ "bind" ];
     };
 
