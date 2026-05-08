@@ -28,6 +28,7 @@ with lib;
       rofi
       rofi-pass
       scrot
+      signal-desktop
       slack
       spotify
       telegram-desktop
