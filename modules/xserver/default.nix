@@ -52,6 +52,7 @@ with lib;
         atkinson-hyperlegible
         atkinson-hyperlegible-mono
         corefonts
+        font-awesome
         inter
         lora
         merriweather
@@ -110,6 +111,9 @@ with lib;
             i3lock
             i3blocks
             i3status-rust
+
+            polybarFull
+            polybar-launch
 
             # Dependencies for blocklets
             lm_sensors # temperature

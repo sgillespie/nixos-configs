@@ -1,4 +1,7 @@
-{ feedback, gibberish, ... }:
+{ feedback,
+  gibberish, 
+  ...
+}:
 self: super:
 
 let
@@ -32,5 +35,21 @@ in
        license = licenses.gpl3;
        platforms = with platforms; freebsd ++ linux;
      };
+  };
+
+  polybar-launch = self.writeShellApplication {
+    name = "polybar-launch";
+    runtimeInputs = [ super.polybarFull ];
+    text = ''
+      # Terminate already running bar instances
+      # If all your bars have ipc enabled, you can use 
+      polybar-msg cmd quit || true
+
+      # Launch bar1 and bar2
+      echo "---" | tee -a /tmp/polybar-main.log
+      polybar main 2>&1 | tee -a /tmp/polybar1.log & disown
+
+      echo "Bars launched..."
+    '';
   };
 }
