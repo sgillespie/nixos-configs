@@ -99,6 +99,27 @@ interval=10
 markup=pango
 interval=30
 
+[volume-pulseaudio]
+interval=once
+signal=1
+#MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+# exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
+LONG_FORMAT="Vol[${NAME}]:${VOL}%"
+SHORT_FORMAT="${VOL}% [${INDEX}]"
+AUDIO_HIGH_SYMBOL='\uf028'
+AUDIO_MED_THRESH=50
+AUDIO_MED_SYMBOL='\uf6a8'
+AUDIO_LOW_THRESH=0
+AUDIO_LOW_SYMBOL='\uf026'
+#AUDIO_DELTA=5
+DEFAULT_COLOR=#93a1a1
+MUTED_COLOR=#ff0000
+USE_ALSA_NAME=1
+USE_DESCRIPTION=0
+## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
+SUBSCRIBE=0
+
 # Date Time
 #
 [time]
@@ -108,7 +129,6 @@ TZONES=$DEFAULT_TZ,UTC
 TZ_LABELS=,UTC
 color=#eee8d5
 interval=1
-
 
 # OpenVPN support
 #

@@ -16,6 +16,7 @@ with lib;
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       brave
+      bluetuith
       discord
       dunst
       element-desktop
@@ -103,12 +104,20 @@ with lib;
           enable = true;
           extraPackages = with pkgs; [
             dmenu
+
+            # i3 and friends
             i3status
             i3lock
             i3blocks
             i3status-rust
-            lm_sensors
-            sysstat
+
+            # Dependencies for blocklets
+            lm_sensors # temperature
+            sysstat    # cpu_usage
+            # Required for volume-pulseaudio
+            alsa-utils
+            envsubst
+            font-awesome
           ];
         };
       };
