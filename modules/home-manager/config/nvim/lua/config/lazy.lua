@@ -29,7 +29,7 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "solarized-osaka" } },
+  install = { colorscheme = { "base16-kanagawa" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
   lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json", -- lockfile generated after running update.

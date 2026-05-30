@@ -115,6 +115,8 @@ with lib;
             polybarFull
             polybar-launch
 
+            dex
+
             # Dependencies for blocklets
             lm_sensors # temperature
             sysstat    # cpu_usage

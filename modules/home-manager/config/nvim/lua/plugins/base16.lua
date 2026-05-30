@@ -1,10 +1,10 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "RRethy/nvim-base16",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd[[colorscheme tokyonight-night]]
+      vim.cmd([colorscheme base16-konagawa])
     end,
   },
 }
