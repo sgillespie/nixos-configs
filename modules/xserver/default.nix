@@ -40,6 +40,8 @@ with lib;
       # GTK
       lxappearance
       dracula-theme
+      kanagawa-gtk-theme
+      kanagawa-icon-theme
       materia-theme
       tela-icon-theme
       volantes-cursors
