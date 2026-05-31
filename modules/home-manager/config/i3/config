@@ -28,9 +28,11 @@ set $base0D #7E9CD8
 set $base0E #957FB8
 set $base0F #D27E99
 
+set $embers0A #A4A47A
+
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base0D $base0D $base00 $base0D $base0C
+client.focused          $embers0A $embers0A $base00 $embers0A $embers0A
 client.focused_inactive $base01 $base01 $base05 $base03 $base01
 client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
@@ -52,14 +54,14 @@ exec --no-startup-id feh --bg-scale ~/.config/i3/background.png
 exec --no-startup-id dex --autostart --environment i3
 
 # Set default-ish layout to tabbed
-workspace_layout tabbed
+workspace_layout default
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up l
-set $down k
-set $left j
-set $right semicolon
+set $up k
+set $down j
+set $left h
+set $right l
 
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
@@ -111,6 +113,7 @@ bindsym Mod4+v split v
 
 # enter fullscreen mode for the focused container
 bindsym Mod4+f fullscreen toggle
+bindsym Mod4+Shift+f fullscreen global
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym Mod4+s layout stacking
@@ -237,5 +240,12 @@ exec_always --no-startup-id polybar-launch
 # Start dunst notification daemon
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
-gaps top 2
-gaps inner 1
+gaps outer 0
+gaps inner 6
+smart_gaps on
+
+default_border pixel 1
+default_floating_border pixel 1
+
+# Make tabbed layout clean
+hide_edge_borders smart
