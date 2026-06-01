@@ -15,9 +15,9 @@ with lib;
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      grim # screenshot functionality
+      grim         # screenshot functionality
       wayland
-      wdisplays # tool to configure displays
+      wdisplays    # tool to configure displays
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       xdg-utils
 

@@ -37,6 +37,7 @@ in {
         "nvim".source = ./config/nvim;
         "opencode/opencode.jsonc".source = ./config/opencode/opencode.jsonc;
         "polybar".source = ./config/polybar;
+        "sway".source = ./config/sway;
         "tmux".source = ./config/tmux;
         "zsh".source = ./config/zsh;
         "i3blocks-contrib".source = pkgs.i3blocks-contrib;
