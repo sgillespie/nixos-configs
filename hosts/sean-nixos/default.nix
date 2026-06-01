@@ -54,7 +54,7 @@
     # Re-enable when emulationstation-de is fixed
     # See: https://github.com/NixOS/nixpkgs/issues/420975.
     retroarch.enable = false;
-    wayland.enable = false;
+    wayland.enable = true;
   };
   sops.enable = true;
 

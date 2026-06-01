@@ -24,7 +24,6 @@ with lib;
       # Sway
       swayidle
       swaylock
-      waybar
     ];
 
     xdg.portal = {
@@ -45,6 +44,8 @@ with lib;
           export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
         '';
       };
+
+      waybar.enable = true;
     };
   };
 }
