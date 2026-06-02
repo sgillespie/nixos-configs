@@ -1,0 +1,4 @@
+profile {
+  output eDP-1 disable
+  output HDMI-A-4 scale 1.1
+}

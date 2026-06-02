@@ -33,7 +33,9 @@ in {
         "i3".source = ./config/i3;
         "i3blocks".source = ./config/i3blocks;
         "iamb".source = ./config/iamb;
+        "kanshi".source = ./config/kanshi;
         "kitty".source = ./config/kitty;
+        "mako".source = ./config/mako;
         "nvim".source = ./config/nvim;
         "opencode/opencode.jsonc".source = ./config/opencode/opencode.jsonc;
         "polybar".source = ./config/polybar;
