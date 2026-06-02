@@ -62,7 +62,7 @@ with lib;
         nerd-fonts._0xproto
         nerd-fonts.caskaydia-cove
         nerd-fonts.jetbrains-mono
-        nerd-fonts.hasklug
+        nerd-fonts.sauce-code-pro
         source-code-pro
       ];
     };

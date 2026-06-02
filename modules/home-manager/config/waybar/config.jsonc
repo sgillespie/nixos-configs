@@ -2,31 +2,32 @@
 {
     "layer": "top",    // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 30,      // Waybar height (to be removed for auto height)
+    "height": 32,      // Waybar height (to be removed for auto height)
     "width": null,     // Waybar width
     "spacing": 4,      // Gaps between modules (4px)
 
     // Order of modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
+        "sway/workspaces", // Sway workspaces
+        "sway/mode",       // Show mode header
         "sway/scratchpad",
+        "sway/window"      // Current window title
     ],
 
     "modules-center": [
-        "sway/window"
+        // Privacy requires pipewire, won't until after pulseaudio is abadoned
+        "privacy"
     ],
 
     "modules-right": [
         "disk",
-        "cpu",
         "memory",
+        "cpu",
         "temperature",
         "battery",
-        "battery#bat2",
         "network",
         "pulseaudio",
-        "power-profiles-daemon",
+        "clock#utc", // UTC time
         "clock",
         "tray",
     ],
@@ -41,14 +42,13 @@
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
-        "format": "{icon}  {value}",
+        "format": "{icon} {value}",
         "format-icons": {
             "1: Code": "",
             "2: Office": "",
             "3: Social": "",
             "urgent": "",
-            // "focused": "",
-            // "default": ""
+            "default": ""
         }
     },
 
@@ -59,31 +59,32 @@
     "sway/scratchpad": {
         "format": "{icon} {count} Scratchpad",
         "show-empty": true,
-        "format-icons": ["", ""],
+        "format-icons": ["", ""],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
 
     "sway/window": {
         "format": "{app_id}: {title}",
+        "max-length": 40,
         "tooltip": true,
         "all-outputs": true,
-        "icon": true
+        "icon": false
     },
 
     "disk": {
         "interval": 30,
-        "format": " /: {specific_used:0.0f}/{specific_total:0.0f} GiB",
+        "format": " {specific_used:0.0f}/{specific_total:0.0f} GiB",
         "path": "/",
         "unit": "GiB"
     },
 
     "memory": {
-        "format": " {used:0.0f}/{total:0.0f} GiB" 
+        "format": "󰍛 {used:0.0f}/{total:0.0f} GiB" 
     },
 
     "cpu": {
-        "format": " {usage}% | {load}",
+        "format": " {usage}% {load:0.1f}",
         "tooltip": false
     },
 
@@ -93,14 +94,14 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""]
     },
 
     "network": {
-        "format-wifi": " {essid} ({signalStrength}%) ",
-        "format-ethernet": " {ipaddr}/{cidr}",
-        "tooltip-format": " {ifname} via {gwaddr}",
-        "format-linked": " {ifname} (No IP)",
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+        "tooltip-format": "󰌘 {ifname} via {gwaddr}",
+        "format-linked": "󰌘 {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
@@ -109,15 +110,14 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
         "format-source": " {volume}%",
         "format-source-muted": "",
-        // TODO: these aren't working right
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "hands-free": "󰏶",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -126,52 +126,59 @@
         "on-click": "pavucontrol"
     },
 
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10,
-        // "icons": {
-        //   "blueman": "bluetooth",
-        //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
-    },
-
-    "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
     "battery": {
         "states": {
             // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    "battery#bat2": {
-        "bat": "BAT2"
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%Y-%m-%d %H:%M:%S %Z}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
     },
-    "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "clock#utc": {
+        "interval": 1,
+        "timezone": "UTC",
+        "format": "{:%H:%M:%S UTC}",
+        "tooltip": false
+    },
+
+    "tray": {
+        "spacing": 10
+    },
+
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
 }

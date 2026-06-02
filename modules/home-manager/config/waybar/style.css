@@ -42,8 +42,7 @@
 @define-color base0F #825757;
 
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Atkinson Hyperlegible Mono, sans-serif;
+    font-family: Atkinson Hyperlegible Mono, SauceCodePro Nerd Font, sans-serif;
     font-size: 11pt;
 }
 
@@ -167,9 +166,16 @@ button:hover {
     margin-right: 0;
 }
 
-/* Padding/sizing overrides */
-#power-profiles-daemon {
-    padding-right: 15px;
+/* Emphasis on primary metrics: local time, CPU, RAM */
+#clock,
+#cpu,
+#memory {
+    color: @base0A;
+}
+
+/* De-emphasize the secondary UTC clock */
+#clock.utc {
+    color: @base04;
 }
 
 #custom-media {
@@ -200,7 +206,6 @@ button:hover {
 
 /* State changes */
 #battery.charging, #battery.plugged {
-    background-color: @base0B;
 }
 
 @keyframes blink {
