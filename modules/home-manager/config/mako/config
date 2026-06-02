@@ -1,0 +1,15 @@
+font=Atkinson Hyperlegible 11
+background-color=#16130fee
+text-color=#a39a90
+border-color=#6d8257
+border-size=2
+border-radius=4
+default-timeout=5000
+margin=8
+padding=10
+max-visible=5
+anchor=top-right
+
+[urgency=critical]
+border-color=#826d57
+default-timeout=0
