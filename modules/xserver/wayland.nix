@@ -15,10 +15,15 @@ with lib;
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      cliphist     # clipboard history
       grim         # screenshot functionality
+      kanshi       # display profiles
+      mako         # wayland notification daemon
+      slurp        # region selection for grim
       wayland
       wdisplays    # tool to configure displays
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+      wtype        # Wayland equivalent of xdotool type
       xdg-utils
 
       # Sway

@@ -267,16 +267,30 @@ bindsym $mod+r mode "resize"
 #
 # Utilities:
 #
-# Special key to take a screenshot with grim
-bindsym $mod+p exec grim
+# Screenshot a region to the clipboard
+bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
+
+# Clipboard history picker
+bindsym $mod+Shift+v exec cliphist list | rofi -dmenu -p clipboard | cliphist decode | wl-copy
 
 ### Startup configuration
 #
+# Launch display profile
+exec kanshi
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec dex --autostart --environment sway
-# Start dunst notification daemon
-exec dunst -config ~/.config/dunst/dunstrc
+
+# Start notification daemon
+exec mako
+
+# Turn off displays after idle timeout
+exec swayidle -w timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+
+# Watch clipboard and persist history
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
 
 #
 # Status Bar:
